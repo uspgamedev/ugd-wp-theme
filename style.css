@@ -1,7 +1,7 @@
 /*
 
-Theme Name: Horisec
-Theme URI: http://github.com/orenjiakira/generic-website/
+Theme Name: UGD
+Theme URI: http://github.com/uspgamedev/ugd-wp-theme/
 Author: W. Akira
 Author URI: http://github.com/orenjiakira/
 Description: Responsive template using bootstrap and real time navigation.
@@ -9,10 +9,10 @@ Version: 1.0a
 License: This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
 License URI: http://creativecommons.org/licenses/by-nc-sa/4.0/
 Tags: black, blue, white, dark, one-column, fluid-layout, responsive-layout, custom-menu, featured-images, microformats, sticky-post
-Text Domain: Horisec
+Text Domain: UGD
 
-Horisec WordPress Theme © 2015 W. Akira
-Horisec is distributed under the terms of the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+UGD WordPress Theme © 2015 W. Akira
+UGD is distributed under the terms of the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
 
 */
 
@@ -28,6 +28,13 @@ Horisec is distributed under the terms of the Creative Commons Attribution-NonCo
 /* === Font Sizes =============== */
 	body {
 		font-size: 1.8rem; /* 18px */
+		line-height: 1.5em;
+	}
+	.bold {
+		font-weight: 900;
+	}
+	.small {
+		font-size: 1.4rem;
 	}
 /* ============================== */
 
@@ -46,6 +53,8 @@ Horisec is distributed under the terms of the Creative Commons Attribution-NonCo
 		bottom: 0;
 		overflow-x: hidden;
 		overflow-y: hidden;
+		-webkit-transform: translateZ(0);
+		-webkit-font-smoothing: antialiased;
 	}
 	#masthead {
 		display: block;
@@ -61,6 +70,21 @@ Horisec is distributed under the terms of the Creative Commons Attribution-NonCo
 		user-select: none;
 	}
 	#colophon {
+		position: absolute;
+		padding-top: 32px;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		-o-user-select: none;
+		user-select: none;
+	}
+	@media (min-width: 768px) {
+		#colophon {
+			font-size: 1em;
+		}
 	}
 	
 	/* --- #content --- */
@@ -80,14 +104,20 @@ Horisec is distributed under the terms of the Creative Commons Attribution-NonCo
 		}
 	/* ---------------- */
 	
-	.sections {
+	.section {
 		display: block;
 		position: absolute;
 		width: 100%;
 		height: 100%;
 		padding-top: 50px;
-		padding-bottom: 15px;
+		/*padding-bottom: 15px;*/
+		/*overflow-y: auto;*/
 		overflow-y: auto;
+	}
+	@media (min-width: 992px) {
+		.section {
+			overflow-y: hidden;
+		}
 	}
 /* ============================== */
 
@@ -222,6 +252,13 @@ Horisec is distributed under the terms of the Creative Commons Attribution-NonCo
 	/* =========== */
 
 	/* == COVER == */
+		.cover {
+			padding-bottom: 96px;
+		}
+		.list-item a {
+			display: block;
+			padding: 8px;
+		}
 		/* --- .img.logo --- */
 			.img.logo {
 				background-size: contain;
@@ -251,13 +288,30 @@ Horisec is distributed under the terms of the Creative Commons Attribution-NonCo
 	/* =========== */
 
 	/* == PAGE == */
-		.page {
-			margin-top: 250px;
+		.page-entry {
+			/*margin-top: 250px;*/
 		}
 		.page-header {
 		}
+		.content-height {
+			position: relative;
+			height: 100%;
+		}
+		.scrollable {
+			overflow-y:	auto;
+		}
 		.page-content {
 			padding-bottom: 30px;
+		}
+		.img-col {
+			position: static;
+			min-height: 300px;
+		}
+		.page-container {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
 		}
 		/* --- .page-img --- */
 			.page-img {
@@ -266,22 +320,31 @@ Horisec is distributed under the terms of the Creative Commons Attribution-NonCo
 				left: 0px;
 				right: 0px;
 				height: 300px;
+				box-shadow: 0 3px 5px black;
 			}
 			@media (min-width: 768px) {
-				.page {
-					margin-top: 350px;
+				.page-entry {
+					/*margin-top: 350px;*/
 				}
 				.page-img {
 					height: 400px;
 				}
+				.img-col {
+					position: static;
+					min-height: 400px;
+				}
 			}
 			@media (min-width: 992px) {
-				.page {
-					margin-top: 0;
+				.page-entry {
+					padding-top: 48px;
 				}
 				.page-img {
 					height: 100%;
 					width: 50%;
+					box-shadow:	none;
+				}
+				.page-container {
+					height: 100%;
 				}
 			}
 		/* ---------------------- */
@@ -359,8 +422,16 @@ Horisec is distributed under the terms of the Creative Commons Attribution-NonCo
 		top: 50%;
 		font-size: 3em;
 	}
+	#loading > i {
+		height: 48px;
+	}
 	
 	.img {
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		-o-user-select: none;
+		user-select: none;
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
@@ -411,11 +482,11 @@ Horisec is distributed under the terms of the Creative Commons Attribution-NonCo
 
 /*  === Animation Classes ======= */
 	.transition {
-		-webkit-transition: all .4s ease;
-		-moz-transition: all .4s ease;
-		-ms-transition: all .4s ease;
-		-o-transition: all .4s ease;
-		transition: all .4s ease;
+		-webkit-transition: all .2s ease-in-out;
+		-moz-transition: all .2s ease-in-out;
+		-ms-transition: all .2s ease-in-out;
+		-o-transition: all .2s ease-in-out;
+		transition: all .2s ease-in-out;
 	}
 	.transition-delay {
 		-webkit-transition-delay: .4s;
@@ -460,36 +531,40 @@ Horisec is distributed under the terms of the Creative Commons Attribution-NonCo
 	    0%   { transform: rotate(0deg); }
 	    100% { transform: rotate(360deg); }
 	}
-	.juicy-low {
+	.juicy {
 		opacity: 0;
-		/*
-		-webkit-transform: translate3d(0, 25%, 0);
-		-moz-transform: translate3d(0, 25%, 0);
-		-ms-transform: translate3d(0, 25%, 0);
-		-o-transform: translate3d(0, 25%, 0);
-		transform: translate3d(0, 25%, 0);
-		*/
 	}
 /* ============================== */
 
 /* === Color Classes ============ */
 	.white { 
-		background-color: #ffffff;
+		background-color: #efefef;
 	}
 	.white-text, .white-text a {
-		color: #ffffff;
+		color: #efefef;
+	}
+	.black { 
+		background-color: #1a1a1a;
+	}
+	@media (max-width: 991px) {
+		.black-untilmd { 
+			background-color: #1a1a1a;
+		}
+	}
+	.black-text, .black-text a {
+		color: #1a1a1a;
 	}
 	.red {
-		background-color: #A92B2C;
+		background-color: #E54B4B;
 	}
 	.red-text, .red-text a {
-		color: #A92B2C;
+		color: #E54B4B !important;
 	}
 	.greenlue {
 		background-color: #62F2AA;
 	}
 	.greenlue-text, .greenlue-text a {
-		color: #62F2AA;
+		color: #62F2AA !important;
 	}
 	.grey { 
 		background-color: #656565;

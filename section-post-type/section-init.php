@@ -4,7 +4,7 @@
 
 add_action( 'init', 'register_section_post_type' );
 function register_section_post_type() {
-  	register_post_type( 'horisec_section',
+  	register_post_type( 'ugd_section',
 	    array(
 			'labels' => array(
 				'name' => __('Sections'),

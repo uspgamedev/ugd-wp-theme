@@ -4,24 +4,58 @@
 
 add_action('save_post', 'save_section_post_meta', 1);
 function save_section_post_meta( $post_id ) {
+    // Do stuff.
 
-    // verify nonce  
-    if (isset($_POST['horisec_section_nonce']) && (!wp_verify_nonce($_POST['horisec_section_nonce'], basename(__FILE__)))) return;
     // check autosave  
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
-    // check permissions and verify if this is our post type saving.
-	if ( get_post($post_id)->post_type != 'horisec_section' ) {
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        /*
+        
+        wp_die('<h2>FUCK! YOU DONE FUCKED UP. Autosave Error.</h2>');
+
+        */
         return;
-    } elseif (!current_user_can('edit_post', $post_id)) { 
+    }
+
+    // verify if this is the right post type
+    if ( get_post($post_id)->post_type != 'ugd_section' ) {
+        /*
+        
+        $message = "<br><strong>Post Types are different.</strong>
+            <br>Expected: ugd_section<br>Got: " . get_post($post_id)->post_type;
+
+        wp_die('<h2>FUCK! YOU DONE FUCKED UP. Wrong Post Type Error.</h2>' . $message);
+
+        */
+        return;
+
+    }
+
+    // check author permissions
+    if (!current_user_can('edit_post', $post_id)) { 
+        /*
+
+        wp_die('<h2>FUCK! YOU DONE FUCKED UP. Author Permission Error.</h2>');
+
+        */
+        return;
+    }
+
+    // verify nonce
+    if ( !wp_verify_nonce( $_POST['UGD_section_fields'], 'UGD_metabox_nonce' ) ) {
+        /*
+        $m
+        essage = "<br><strong>Nonces are different.</strong>
+            <br>Expected: " . plugin_basename( __FILE__ ) . "<br>Got: " . $nonce;
+        
+        wp_die('<h2>FUCK! YOU DONE FUCKED UP. Nonce Error.</h2>' . $message);
+
+        */
         return;
     }
 
     // OK, we're authenticated: we need to find and save the data
-    $sectiontype = $_POST['section_type'];
-    $sectioncontent = $_POST['section_content'];
-    
-    update_post_meta($post_id, 'section_type', $sectiontype);
-    update_post_meta($post_id, 'section_content', $sectioncontent);
+    update_post_meta($post_id, 'section_type', $_POST['section_type']);
+    update_post_meta($post_id, 'section_content', $_POST['section_content']);
 }
 
 ?>

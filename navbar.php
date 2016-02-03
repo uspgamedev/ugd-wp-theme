@@ -3,7 +3,7 @@
 // NAVIGATION BAR
 $menusections = get_posts(
     array(
-        "post_type" => "horisec_section",
+        "post_type" => "UGD_section",
         "posts_per_page" => 9,
         "orderby" => "menu_order",
         "order" => "ASC"
@@ -21,14 +21,16 @@ $menusections = get_posts(
         </a>
 
         <!-- Navigation Menu -->
-        <div id="navigation-menu" class="navigation-menu white-text transition">
+        <div id="navigation-menu" class="navigation-menu transition">
 
       		<ul class="list-unstyled">
   			<?php
       			for ($i=0; $i < count($menusections); $i++) {
       				$menu_item = $menusections[$i];
       				if ( !(get_post_meta($menu_item->ID, 'section_type', true) == 'cover') ) {
-                        printf('<li class="navigation-menu-item"><a class="section-ctrl" href="#">%1$s</a></li>', $menu_item->post_title);
+                        printf('<li class="navigation-menu-item white-text"><a href="#">%1$s</a></li>', $menu_item->post_title);
+                    } else {
+                        printf('<li class="hidden navigation-menu-item white-text"><a href="#">%1$s</a></li>', $menu_item->post_title);
                     }
       			}
   			?>

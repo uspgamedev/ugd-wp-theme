@@ -4,7 +4,7 @@
 
 add_action('add_meta_boxes', 'add_section_meta_box');
 function add_section_meta_box() {
-	add_meta_box('horisec_section', __('Type of Section'), 'section_get_post_meta', 'horisec_section', 'normal', 'high');
+	add_meta_box('ugd_section', __('Type of Section'), 'section_get_post_meta', 'ugd_section', 'normal', 'high');
 }
 
 /* Prints the box content */
@@ -13,7 +13,7 @@ function section_get_post_meta() {
 
 	$post_id = $post->ID;
 
-    wp_create_nonce( basename( __FILE__ ), 'horisec_section_nonce' );
+    wp_nonce_field( 'UGD_metabox_nonce', 'UGD_section_fields' );
 
     $stype = get_post_meta($post_id, 'section_type', true);
     $scontent = get_post_meta($post_id, 'section_content', true);
@@ -30,6 +30,7 @@ function section_get_post_meta() {
 
     //query
     $categories = get_categories();
+
     //page
     $pages = get_posts( array( 'post_type' => 'page', 'posts_per_page' => -1 ) );
 

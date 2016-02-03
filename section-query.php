@@ -7,7 +7,7 @@ $pagelimit = $cat_query->max_num_pages;
 
 ?>
 <div class="vert-algn-sm">
-	<div class="juicy juicy-low transition transition-delay">
+	<div class="">
 		<div current-page="1" page-limit="<?php echo $pagelimit; ?>" id="query-<?php echo $section_content; ?>" class="post-grid">
 			<?php while ( $cat_query->have_posts() ) : $cat_query->the_post(); ?>
 				<?php include(locate_template('query-post.php')); ?>
