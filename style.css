@@ -214,9 +214,14 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 			line-height: 2em;
 			display: block;
 		}
-		.icon {
+		.icon-left, .icon-right {
 			vertical-align: -1px;
-			padding: 0 15px;
+		}
+		.icon-left {
+			padding-right: 15px;
+		}
+		.icon-right {
+			padding-left: 15px;
 		}
 		/* --- .post-grid --- */
 			.post-grid {

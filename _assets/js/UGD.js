@@ -309,15 +309,87 @@ function MENU() {
 };
 
 
+function SINGLE() {
+	var obj = {};
 
+	// Private Attributes
+	var thumbnails;
+	var data;
+	var loading = $('#loading');
 
+	// Private Methods
+	function update_next_action(button) {
+		button.onclick = function() {
+			set_data(this, 'next');
+			
+			var container = $('#query-' + data.query_id).parent();
+			container.fadeOut(200);
+			loading.fadeIn(200);
+			console.log('requesting new page...');
+			
+			$.post(
+				ajaxurl,
+				data,
+				function (returnedData) {
+					container.empty();
+					container.append(returnedData);
+					loading.fadeOut(200);
+					container.fadeIn(200);
+					
+					obj.load();
+					console.log('new page gotten!');
+				}
+			);
+		}
+	}
+	function update_prev_action(button) {
+		button.onclick = function() {
+			set_data(this, 'prev');
 
+			var container = $('#query-' + data.query_id).parent();
+			container.fadeOut(200);
+			loading.fadeIn(200);
+			console.log('requesting new page...');
+			
+			$.post(
+				ajaxurl,
+				data,
+				function (returnedData) {
+					container.empty();
+					container.append(returnedData);
+					loading.fadeOut(200);
+					container.fadeIn(200);
+					
+					obj.load();
+					console.log('new page gotten!');
+				}
+			);
+		}
+	}
+	function set_data(button, intention) {
+		var params = document.getElementById( button.getAttribute('params') );
+		data = {
+			action: 'changepage',
+			intention: intention,
+			query_id: params.getAttribute('query-id'),
+			current_page: params.getAttribute('current-page'),
+			page_limit: params.getAttribute('page-limit')
+		}
+	}
+	function update() {
+		for (var i = 0; i < next_btn.length; i++) {
+			update_next_action( next_btn[i], i );
+		};
+		for (var i = 0; i < prev_btn.length; i++) {
+			update_prev_action( prev_btn[i], i );
+		};
+	}
+	
+	// Public Methods
+	obj.load = function() {
+		thumbnails = document.getElementsByClassName('post-permalink');
+		update();
+	}
 
-
-
-
-
-
-
-
-
+	return obj;
+}

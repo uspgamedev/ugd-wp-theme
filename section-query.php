@@ -24,36 +24,39 @@ $paged = $cat_query->get( 'paged', 1 );
 				<?php if ($cat_query->current_post % 2 == 0) echo '<div class="clearfix hidden-md hidden-lg"></div>'; ?>
 				<?php include(locate_template('query-post.php')); ?>
 			<?php endwhile; ?>
-			<div class="clearfix">
-				<input  id="query_<?php echo $section_content; ?>_params"
-						type="hidden"
-						query-id="<?php echo $section_content; ?>"
-						current-page="<?php echo $paged; ?>" />
-			</div>
+			<div class="clearfix"></div>
+			
+			<input  id="query_<?php echo $section_content; ?>_params"
+					type="hidden"
+					query-id="<?php echo $section_content; ?>"
+					current-page="<?php echo $paged; ?>" />
 			
 			<nav class="query-nav text-center">
 				<!--div class="col-xs-12">
 					<?php echo $paged . "/" . $pagelimit; ?>
 				</div-->
 				<?php if ($paged > 1) { ?>
-					<div class="col-xs-6">
+					<div class="col-xs-6 col-md-4">
 						<a  href="#"
 							params="query_<?php echo $section_content; ?>_params"
 							class="query-nav-btn-prev red-text">
 
-							Prev <i class="icon glyphicon glyphicon-backward"></i>
+							<i class="icon-left glyphicon glyphicon-backward"></i> Prev
 						</a>
 					</div>
 				<?php } else { ?>
-					<div class="col-xs-6"></div>
+					<div class="col-xs-6 col-md-4"></div>
 				<?php } ?>
+
+				<div class="col-md-4 visible-md-block visible-lg-block"></div>
+				
 				<?php if ($paged < $pagelimit) { ?>
-					<div class="col-xs-6">
+					<div class="col-xs-6 col-md-4">
 						<a  href="#"
 							params="query_<?php echo $section_content; ?>_params"
 							class="query-nav-btn-next red-text">
 
-							Next <i class="glyphicon glyphicon-forward"></i>
+							Next <i class="icon-right glyphicon glyphicon-forward"></i>
 						</a>
 					</div>
 				<?php } else { ?>
