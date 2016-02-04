@@ -17,9 +17,9 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?> >
-	<div id="wrapper" class="transition dark white-text">
+	<div id="wrapper" class="transition dark black-xs white-text">
 		<!-- Navbar -->
 		<?php get_template_part('navbar'); ?>
 
 		<!-- Content -->
-		<div id="content" class="transition">
+		<div id="content" class="transition dark">

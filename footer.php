@@ -16,10 +16,12 @@
 		loading.classList.add('juicy');
 		var ugd_sections = SECTIONS();
 		var ugd_menu = MENU();
+		var ugd_query = QUERY();
 		setTimeout(
 			function() {
 				loading.classList.add('hidden');
 				ugd_sections.load();
+				ugd_query.load();
 			},
 			400
 		);

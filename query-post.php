@@ -1,6 +1,13 @@
-<article class="post col-xs-12 col-sm-6 col-md-4 col-lg-3 h-50 ">
+<?php
+
+$post = $cat_query->post;
+
+?>
+
+<article class="post col-xs-12 col-sm-6 col-md-4 h-50 ">
 	<a href="#" class="post-permalink">
 		<div class="post-thumb">
+			<div class="text-center big post-background glyphicon glyphicon-picture"></div>
 			<div id="post-<?php echo $post->ID; ?>-thumbnail" class="img"></div>
 			<style>
 

@@ -13,7 +13,7 @@ $menusections = get_posts(
 ?>
 
 <nav id="masthead" class="dark-translucid intro">
-	<div class="container-fluid text-center">
+	<div class="container-fluid text-center unselectable">
 
         <!-- Toggle Button -->
         <a href="#" id="nav-btn" class="visible-xs-inline-block pull-left toggle-button" toggle-target="navigation-menu">

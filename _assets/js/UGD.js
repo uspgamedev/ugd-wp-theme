@@ -70,10 +70,66 @@ function QUERY() {
 	var obj = {};
 
 	// Private Attributes
+	var next_btn;
+	var prev_btn;
+	var data;
 
 	// Private Methods
+	function update_next_action(button) {
+		button.onclick = function() {
+			set_data(this, 'next');
+			$.post(
+				ajaxurl,
+				data,
+				function (returnedData) {
+					var container = $('#query-' + data.query_id).parent();
+					container.empty();
+					container.append(returnedData);
+					obj.load();
+				}
+			);
+		}
+	}
+	function update_prev_action(button) {
+		button.onclick = function() {
+			set_data(this, 'prev');
+			$.post(
+				ajaxurl,
+				data,
+				function (returnedData) {
+					var container = $('#query-' + data.query_id).parent();
+					container.empty();
+					container.append(returnedData);
+					obj.load();
+				}
+			);
+		}
+	}
+	function set_data(button, intention) {
+		var params = document.getElementById( button.getAttribute('params') );
+		data = {
+			action: 'changepage',
+			intention: intention,
+			query_id: params.getAttribute('query-id'),
+			current_page: params.getAttribute('current-page'),
+			page_limit: params.getAttribute('page-limit')
+		}
+	}
+	function update() {
+		for (var i = 0; i < next_btn.length; i++) {
+			update_next_action( next_btn[i], i );
+		};
+		for (var i = 0; i < prev_btn.length; i++) {
+			update_prev_action( prev_btn[i], i );
+		};
+	}
 	
 	// Public Methods
+	obj.load = function() {
+		next_btn = document.getElementsByClassName('query-nav-btn-next');
+		prev_btn = document.getElementsByClassName('query-nav-btn-prev');
+		update();
+	}
 
 	return obj;
 }

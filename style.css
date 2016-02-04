@@ -35,6 +35,14 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 	}
 	.small {
 		font-size: 1.4rem;
+		line-height: 2.1rem;
+	}
+	.smaller {
+		font-size: 1rem;
+		line-height: 1.5rem;
+	}
+	.big {
+		font-size: 3.2rem;
 	}
 /* ============================== */
 
@@ -63,11 +71,6 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		width: 100%;
 		height: 48px;
 		z-index: 255;
-		-webkit-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		-o-user-select: none;
-		user-select: none;
 	}
 	#colophon {
 		position: absolute;
@@ -75,11 +78,6 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		left: 0;
 		right: 0;
 		bottom: 0;
-		-webkit-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		-o-user-select: none;
-		user-select: none;
 	}
 	@media (min-width: 768px) {
 		#colophon {
@@ -176,8 +174,17 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 	
 
 	/* == QUERY == */
+		.query {
+			padding-top: 48px;
+			padding-bottom: 15px;
+			overflow-y: auto;
+		}
+		.query-container {
+			padding-top: 48px;
+		}
 		.post {
 		}
+		
 		.post-permalink {
 			display: block;
 		}
@@ -200,17 +207,18 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		.post-content {
 		}
 		.query-nav {
+			padding-bottom: 15px;
 		}
 		.query-nav-btn {
 		}
 		/* --- .post-grid --- */
 			.post-grid {
-				width: ;
+				width: auto;
 				margin: 0 auto;
 			}
 			@media (min-width: 768px) {
 				.post-grid {
-					width: 705px;
+					width: 708px;
 				}
 			}
 			@media (min-width: 992px) {
@@ -234,19 +242,36 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 				background-image: ;
 				border-radius: 8px;
 			}
+			.post-background {
+				position: absolute;
+				left: 0;
+				right: 0;
+				margin: 0 15px;
+				z-index: -1;
+				line-height: ;
+			}
 			@media (min-width: 768px) {
 				.post-thumb {
-					height: ;
+					height: 324px;
+				}
+				.post-background {
+					line-height: 324px;
 				}
 			}
 			@media (min-width: 992px) {
 				.post-thumb {
 					height: 214px;
 				}
+				.post-background {
+					line-height: 214px;
+				}
 			}
 			@media (min-width: 1200px) {
 				.post-thumb {
 					height: 255px;
+				}
+				.post-background {
+					line-height: 255px;
 				}
 			}
 	/* =========== */
@@ -426,6 +451,15 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		height: 48px;
 	}
 	
+	.unselectable {
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		-o-user-select: none;
+		user-select: none;
+	}
+
+
 	.img {
 		-webkit-user-select: none;
 		-moz-user-select: none;
@@ -537,10 +571,18 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 /* ============================== */
 
 /* === Color Classes ============ */
+	a {
+		color: #E54B4B;
+	}
+	a:active, a:focus, a:hover {
+		color: #62F2AA;
+		text-decoration: none;
+	}
+
 	.white { 
 		background-color: #efefef;
 	}
-	.white-text, .white-text a {
+	.white-text {
 		color: #efefef;
 	}
 	.black { 
@@ -551,25 +593,30 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 			background-color: #1a1a1a;
 		}
 	}
-	.black-text, .black-text a {
+	@media (max-width: 767px) {
+		.black-xs { 
+			background-color: #1a1a1a !important;
+		}	
+	}
+	.black-text {
 		color: #1a1a1a;
 	}
 	.red {
 		background-color: #E54B4B;
 	}
 	.red-text, .red-text a {
-		color: #E54B4B !important;
+		color: #E54B4B;
 	}
 	.greenlue {
 		background-color: #62F2AA;
 	}
-	.greenlue-text, .greenlue-text a {
-		color: #62F2AA !important;
+	.greenlue-text {
+		color: #62F2AA;
 	}
 	.grey { 
 		background-color: #656565;
 	}
-	.grey-text, .grey-text a {
+	.grey-text {
 		color: #656565;
 	}
 	.dark { 
@@ -580,11 +627,33 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 			background-color: rgba(31, 40, 48, 0.5);
 		}
 	}
-	.dark-text, .dark-text a {
+	.dark-text {
 		color: #1F2830;
 	}
 	.transparent {
 		background-color: transparent;
+	}
+
+	#masthead a {
+		color: #efefef;
+	}
+	#masthead a:active, #masthead a:focus, #masthead a:hover {
+		color: #E54B4B;
+		text-decoration: none;
+	}
+	#masthead .greenlue-text, #masthead .greenlue-text a {
+		color: #62F2AA;
+	}
+
+	.query a {
+		color: #efefef;
+	}
+	.query a:active, .query a:focus, .query a:hover {
+		color: #62F2AA;
+	}
+
+	a.greenlue-text:active, a.greenlue-text:focus, a.greenlue-text:hover {
+		color: #E54B4B;	
 	}
 
 /* ============================== */

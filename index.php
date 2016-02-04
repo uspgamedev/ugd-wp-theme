@@ -20,7 +20,7 @@ $querypage = [];
 
 		// Meta Field: section content (nothing, category-id, page-id)
 		$section_content = get_post_meta($sections->post->ID, 'section_content', true);
-
+		$requested_page = 1;
 	?>
 	<div class="section col-xs-12 h-100 transition juicy <?php echo $section_type; ?>" section-type="<?php echo $section_type; ?>">
 		<div class="container-fluid h-100">
