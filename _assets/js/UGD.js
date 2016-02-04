@@ -73,19 +73,29 @@ function QUERY() {
 	var next_btn;
 	var prev_btn;
 	var data;
+	var loading = $('#loading');
 
 	// Private Methods
 	function update_next_action(button) {
 		button.onclick = function() {
 			set_data(this, 'next');
+			
+			var container = $('#query-' + data.query_id).parent();
+			container.fadeOut(200);
+			loading.fadeIn(200);
+			console.log('requesting new page...');
+			
 			$.post(
 				ajaxurl,
 				data,
 				function (returnedData) {
-					var container = $('#query-' + data.query_id).parent();
 					container.empty();
 					container.append(returnedData);
+					loading.fadeOut(200);
+					container.fadeIn(200);
+					
 					obj.load();
+					console.log('new page gotten!');
 				}
 			);
 		}
@@ -93,14 +103,23 @@ function QUERY() {
 	function update_prev_action(button) {
 		button.onclick = function() {
 			set_data(this, 'prev');
+
+			var container = $('#query-' + data.query_id).parent();
+			container.fadeOut(200);
+			loading.fadeIn(200);
+			console.log('requesting new page...');
+			
 			$.post(
 				ajaxurl,
 				data,
 				function (returnedData) {
-					var container = $('#query-' + data.query_id).parent();
 					container.empty();
 					container.append(returnedData);
+					loading.fadeOut(200);
+					container.fadeIn(200);
+					
 					obj.load();
+					console.log('new page gotten!');
 				}
 			);
 		}
