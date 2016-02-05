@@ -186,7 +186,6 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		}
 		.post {
 		}
-		
 		.post-permalink {
 			display: block;
 		}
@@ -249,6 +248,7 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		/* --- .post-thumb --- */
 		/* ------------------- */
 			.post-thumb {
+				position: relative;
 				height: 200px;
 				overflow: hidden;
 				border: solid 3px rgba(230,230,230,0.5);
@@ -344,7 +344,7 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		}
 		.img-col {
 			position: static;
-			min-height: 300px;
+			min-height: 360px;
 		}
 		.page-container {
 			position: absolute;
@@ -358,7 +358,7 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 				top: 0;
 				left: 0px;
 				right: 0px;
-				height: 300px;
+				height: 360px;
 				box-shadow: 0 3px 5px black;
 			}
 			@media (min-width: 768px) {
@@ -366,11 +366,11 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 					/*margin-top: 350px;*/
 				}
 				.page-img {
-					height: 400px;
+					height: 420px;
 				}
 				.img-col {
 					position: static;
-					min-height: 400px;
+					min-height: 420px;
 				}
 			}
 			@media (min-width: 992px) {
@@ -409,11 +409,6 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		.single-container {
 			padding-top: 2em;
 			padding-bottom: 2em;
-		}
-		.single-sample-img {
-			position: absolute;
-			background-image: url('_assets/image/sample_code.png');
-			z-index: -1;
 		}
 		/* --- .single-img --- */
 			.single-img {
@@ -544,6 +539,11 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		display: block;
 		width: 100%;
 		height: 100%;
+	}
+	.sample-img {
+		background-image: url('_assets/image/sample_code.png');
+		position: absolute;
+		z-index: -1;
 	}
 
 	/* --- .vert-algn --- */

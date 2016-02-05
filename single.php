@@ -6,8 +6,7 @@
 		<div class="container-fluid h-100">
 			<div class="row">
 				<div id="single-<?php echo $post->ID; ?>-thumbnail" class="img single-img">
-					<div class="single-sample-img img">
-					</div>
+					<div class="sample-img img"></div>
 					<style>
 						<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail' );
 						$thumburl = $thumb['0']; ?>
