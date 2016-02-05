@@ -19,9 +19,9 @@ $paged = $cat_query->get( 'paged', 1 );
 <div id="query-<?php echo $section_content; ?>" class="query-container">
 	<div class="unselectable">
 		<div class="post-grid">
-			<header class="page-header intro">
+			<!--header class="page-header intro">
 				<h3><?php echo get_category($section_content)->name ?></h3>
-			</header>
+			</header-->
 			<?php while ( $cat_query->have_posts() ) : $cat_query->the_post(); ?>
 				<?php if ($cat_query->current_post % 3 == 0) echo '<div class="clearfix hidden-xs"></div>'; ?>
 				<?php //if ($cat_query->current_post % 2 == 0) echo '<div class="clearfix hidden-sm hidden-md hidden-lg"></div>'; ?>
