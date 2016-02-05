@@ -33,6 +33,10 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 	.bold {
 		font-weight: 900;
 	}
+	.normal-size {
+		font-size: 1.8rem;
+		line-height: 1.5em;
+	}
 	.small {
 		font-size: 1.4rem;
 		line-height: 2.1rem;
@@ -71,6 +75,14 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		width: 100%;
 		height: 48px;
 		z-index: 255;
+	}
+	@media (max-width: 767px) {
+		#masthead {
+			pointer-events: none;
+		}
+		#masthead a {
+			pointer-events: all;
+		}
 	}
 	#colophon {
 		position: absolute;
@@ -188,6 +200,51 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 			background-color: rgba(30,30,30,0.5);
 		}
     }
+    .meta-navigation-menu {
+    	position: absolute;
+    	top: -48px;
+    	left: 0;
+    	right: 0;
+    	z-index: 999;
+    	height:	48px;
+    	line-height: 48px;
+    }
+    .meta-navigation-menu-section{
+    	padding-top: 1.5em;
+    }
+    .meta-area {
+    	line-height: 48px;
+    	margin-bottom: 0;
+    }
+    .meta-area-item, #domains-menu .menu-item {
+    	padding: 0 !important;
+    }
+    #domains-menu {
+    	margin-left: 0;
+		line-height: 48px;
+    }
+    #domains-menu .menu-item a {
+    	display: block;
+    	width: 48px;
+    }
+	@media (min-width: 768px) {
+	    .meta-area-item, #domains-menu .menu-item {
+	    	padding-right: 8px !important;
+	    	padding-left: 8px !important;
+	    }
+	    #domains-menu {
+    		line-height: 48px;
+	    }
+	    #domains-menu .menu-item a {
+	    	display: block;
+	    	min-width: 48px;
+	    	width: auto;
+	    }
+	}
+    .meta-area-item a {
+    	display: block;
+    	min-width: 48px;
+    }
 
 /* === Sections Classes ============= */
 	
@@ -233,7 +290,7 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 			line-height: 2em;
 			display: block;
 		}
-		.icon-left, .icon-right {
+		.icon, .icon-left, .icon-right {
 			vertical-align: -1px;
 		}
 		
@@ -285,7 +342,7 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 			}
 			@media (min-width: 768px) {
 				.post-thumb {
-					height: 324px;
+					height: 206px;
 				}
 				.post-background {
 					line-height: 324px;
@@ -639,13 +696,20 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 			-o-transform: translate3d(215px, 0, 0);
 			transform: translate3d(215px, 0, 0);
 		}
+		.displace.displace-vertical {
+			-webkit-transform: translate3d(215px, 48px, 0);
+			-moz-transform: translate3d(215px, 48px, 0);
+			-ms-transform: translate3d(215px, 48px, 0);
+			-o-transform: translate3d(215px, 48px, 0);
+			transform: translate3d(215px, 48px, 0);
+		}
 	}
 	.displace-vertical {
-		-webkit-transform: translate3d(0, 215px, 0);
-		-moz-transform: translate3d(0, 215px, 0);
-		-ms-transform: translate3d(0, 215px, 0);
-		-o-transform: translate3d(0, 215px, 0);
-		transform: translate3d(0, 215px, 0);
+		-webkit-transform: translate3d(0, 48px, 0);
+		-moz-transform: translate3d(0, 48px, 0);
+		-ms-transform: translate3d(0, 48px, 0);
+		-o-transform: translate3d(0, 48px, 0);
+		transform: translate3d(0, 48px, 0);
 	}
 
 
@@ -690,6 +754,9 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		color: #efefef;
 	}
 	.black { 
+		background-color: #1a1a1a;
+	}
+	#wrapper.black { 
 		background-color: #1a1a1a;
 	}
 	@media (max-width: 991px) {

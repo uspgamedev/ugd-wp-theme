@@ -18,10 +18,3 @@ function changepage() {
 
 	wp_die(); // this is required to terminate immediately and return a proper response
 }
-
-add_action( 'wp_ajax_nothing', 'nothing' );
-add_action( 'wp_ajax_nopriv_nothing', 'nothing' );
-function nothing() {
-	echo 'section: ' . $_GET['section'];
-	wp_die();
-}

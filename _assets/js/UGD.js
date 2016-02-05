@@ -207,7 +207,7 @@ function INPUT(logic) {
 			// setting up section navigation
 			checkNavigationControls(e);
 			// setting up konami code activation
-			//checkKonamiCode(e);
+			checkKonamiCode(e);
 		}
 		function checkKonamiCode(e) {
 			// initialises konami code interpreting
@@ -219,7 +219,7 @@ function INPUT(logic) {
 		   	
 		   	// check input
 		    if (input == secret) {
-		        alert("well hello there");
+		        alert("SECRET UNLOCKED");
 		    }
 		}
 		function checkNavigationControls(e) {
@@ -319,9 +319,11 @@ function MENU() {
 
 function METAMENU() {
 	var toggler = document.getElementById('meta-nav-btn');
-	var togglee = document.getElementById('wrapper');
+	var togglee = document.getElementById('content');
+	var toggle_menu = document.getElementById('masthead');
 	function toggle_meta_menu() {
 		togglee.classList.toggle('displace-vertical');
+		toggle_menu.classList.toggle('displace-vertical');
 	}
 	toggler.onclick = toggle_meta_menu;
 }

@@ -19,9 +19,12 @@ $paged = $cat_query->get( 'paged', 1 );
 <div id="query-<?php echo $section_content; ?>" class="query-container">
 	<div class="unselectable">
 		<div class="post-grid">
+			<header class="page-header intro">
+				<h3><?php echo get_category($section_content)->name ?></h3>
+			</header>
 			<?php while ( $cat_query->have_posts() ) : $cat_query->the_post(); ?>
-				<?php if ($cat_query->current_post % 3 == 0) echo '<div class="clearfix hidden-xs hidden-sm"></div>'; ?>
-				<?php if ($cat_query->current_post % 2 == 0) echo '<div class="clearfix hidden-md hidden-lg"></div>'; ?>
+				<?php if ($cat_query->current_post % 3 == 0) echo '<div class="clearfix hidden-xs"></div>'; ?>
+				<?php //if ($cat_query->current_post % 2 == 0) echo '<div class="clearfix hidden-sm hidden-md hidden-lg"></div>'; ?>
 				<?php include(locate_template('query-post.php')); ?>
 			<?php endwhile; ?>
 			<div class="clearfix"></div>
@@ -36,7 +39,7 @@ $paged = $cat_query->get( 'paged', 1 );
 					<?php echo $paged . "/" . $pagelimit; ?>
 				</div-->
 				<?php if ($paged > 1) { ?>
-					<div class="col-xs-6 col-md-4">
+					<div class="col-xs-6 ">
 						<a  href="#"
 							params="query_<?php echo $section_content; ?>_params"
 							class="query-nav-btn-prev white-text">
@@ -45,13 +48,12 @@ $paged = $cat_query->get( 'paged', 1 );
 						</a>
 					</div>
 				<?php } else { ?>
-					<div class="col-xs-6 col-md-4"></div>
+					<div class="col-xs-6 "></div>
 				<?php } ?>
 
-				<div class="col-md-4 visible-md-block visible-lg-block"></div>
 				
 				<?php if ($paged < $pagelimit) { ?>
-					<div class="col-xs-6 col-md-4">
+					<div class="col-xs-6 ">
 						<a  href="#"
 							params="query_<?php echo $section_content; ?>_params"
 							class="query-nav-btn-next white-text">

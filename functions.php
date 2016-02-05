@@ -23,4 +23,8 @@ function UGD_ajax_script() { ?>
 
 get_template_part('ajax', 'pagination');
 
+register_nav_menu( 'domains', __( 'Domains Menu' ) );
+
+
+
 ?>

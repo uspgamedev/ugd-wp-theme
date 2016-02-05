@@ -42,7 +42,7 @@
 							<h3>
 								<span class="intro"><?php the_title(); ?></span>
 								<small class="hidden-md hidden-lg inline-block">
-									<a class="grey-text" href="#bottom">
+									<a title="Pular Texto" class="grey-text" href="#bottom">
 										[ Pular Texto <i class="icon-right glyphicon glyphicon-arrow-down"></i> ]
 									</a>
 								</small>
@@ -53,17 +53,19 @@
 						</div>
 					</div>
 					<div class="col-md-4">
-						<div id="meta" class="single-meta border-left">
-							<h4 class="bold text-uppercase"><?php echo get_post_meta($post->ID, 'meta_title', true); ?></h4>
-							<ul class="list-unstyled">
-								<?php foreach( get_post_meta($post->ID) as $key => $value ) { ?>
-									<?php if ( stripos($key, "_") !== false ) continue; ?>
-									<li>
-										<span class="bold"><?php echo $key ?>:</span>
-										<?php echo $value[0]; ?>
-									</li>
-								<?php } ?>
-							</ul>
+						<div class="row">
+							<div class="single-meta border-left">
+								<h4 class="bold text-uppercase"><?php echo get_post_meta($post->ID, 'meta_title', true); ?></h4>
+								<ul class="list-unstyled">
+									<?php foreach( get_post_meta($post->ID) as $key => $value ) { ?>
+										<?php if ( stripos($key, "_") !== false ) continue; ?>
+										<li>
+											<span class="bold"><?php echo $key ?>:</span>
+											<?php echo $value[0]; ?>
+										</li>
+									<?php } ?>
+								</ul>
+							</div>
 						</div>
 					</div>
 				</div>
