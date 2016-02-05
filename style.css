@@ -38,8 +38,8 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		line-height: 2.1rem;
 	}
 	.smaller {
-		font-size: 1rem;
-		line-height: 1.5rem;
+		font-size: 1.2rem;
+		line-height: 1.8rem;
 	}
 	.big {
 		font-size: 3.2rem;
@@ -126,6 +126,8 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		height: 48px;
 		width: 48px;
 		margin-left: -15px;
+		background-color: rgba(30,30,30,0.5);
+		border-bottom-right-radius: 8px;
 	}
 	.navigation-menu ul {
 		margin: 0;
@@ -247,7 +249,7 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		/* --- .post-thumb --- */
 		/* ------------------- */
 			.post-thumb {
-				height: ;
+				height: 200px;
 				overflow: hidden;
 				border: solid 3px rgba(230,230,230,0.5);
 				box-shadow: 0px 0px 5px #1a1a1a;
@@ -260,7 +262,7 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 				right: 0;
 				margin: 0 15px;
 				z-index: -1;
-				line-height: ;
+				line-height: 200px;
 			}
 			@media (min-width: 768px) {
 				.post-thumb {
@@ -386,6 +388,59 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 			}
 		/* ---------------------- */
 	/* =========== */
+
+	/* == SINGLE == */
+		.single {
+			padding-top: 0;
+			padding-right: 0;
+			padding-left: 0;
+			overflow-y: auto;
+			word-break: break-word;
+		}
+		.single-header {
+		    padding-bottom: 9px;
+		    margin: 40px 0 20px;
+		    border-bottom: 1px solid #efefef;
+		}
+		.single-meta {
+			margin-top: 3em;
+			padding: 0 15px;
+		}
+		.single-container {
+			padding-top: 2em;
+			padding-bottom: 2em;
+		}
+		.single-sample-img {
+			position: absolute;
+			background-image: url('_assets/image/sample_code.png');
+			z-index: -1;
+		}
+		/* --- .single-img --- */
+			.single-img {
+				min-height: 360px;
+				left: 0;
+				right: 0;
+				position: relative;
+				box-shadow: 0 3px 5px black;
+			}
+			@media (min-width: 768px) {
+				.single-img {
+					min-height: 420px;
+				}
+			}
+			@media (min-width: 992px) {
+				.single-img {
+					min-height: 480px;
+				}
+			}
+			@media (min-width: 1200px) {
+				.single-img {
+					min-height: 540px;
+				}
+			}
+		/* ---------------------- */
+	/* ============ */
+
 /* ============================== */
 
 /*  === Generic Useful Classes == */
@@ -445,6 +500,9 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 	.top {
 		top: 0;
 	}
+	.border-left {
+		border-left: 2px solid;
+	}
 
 	#loading {
 		position: fixed;
@@ -470,7 +528,9 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		-o-user-select: none;
 		user-select: none;
 	}
-
+	#notice {
+		position: fixed;
+	}
 
 	.img {
 		-webkit-user-select: none;
@@ -543,19 +603,22 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 	}
 
 	.rotation {
-		-webkit-animation: rotation .8s ease-in-out infinite;
-	    -moz-animation: rotation .8s ease-in-out infinite;
-	    -ms-animation: rotation .8s ease-in-out infinite;
-	    -o-animation: rotation .8s ease-in-out infinite;
-	    animation: rotation .8s ease-in-out infinite;
+		-webkit-animation: rotation 1.6s linear infinite;
+	    -moz-animation: rotation 1.6s linear infinite;
+	    -ms-animation: rotation 1.6s linear infinite;
+	    -o-animation: rotation 1.6s linear infinite;
+	    animation: rotation 1.6s linear infinite;
 	}
-	.displace {
-		-webkit-transform: translate3d(215px, 0, 0);
-		-moz-transform: translate3d(215px, 0, 0);
-		-ms-transform: translate3d(215px, 0, 0);
-		-o-transform: translate3d(215px, 0, 0);
-		transform: translate3d(215px, 0, 0);
+	@media (max-width: 767px) {
+		.displace {
+			-webkit-transform: translate3d(215px, 0, 0);
+			-moz-transform: translate3d(215px, 0, 0);
+			-ms-transform: translate3d(215px, 0, 0);
+			-o-transform: translate3d(215px, 0, 0);
+			transform: translate3d(215px, 0, 0);
+		}
 	}
+
 
 	@-webkit-keyframes rotation {
 	    0%   { -webkit-transform: rotate(0deg); }
@@ -626,10 +689,10 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		color: #62F2AA;
 	}
 	.grey { 
-		background-color: #656565;
+		background-color: #A5A5A5;
 	}
 	.grey-text {
-		color: #656565;
+		color: #A5A5A5;
 	}
 	.dark { 
 		background-color: #1F2830;

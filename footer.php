@@ -8,20 +8,35 @@
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/_assets/js/height_fix.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/_assets/js/UGD.js"></script>
 <script type="text/javascript">
-
 	$(document).ready(function() {
 
-		
+		$(function() {
+		  	$('a[href*="#"]:not([href="#"])').click(function() {
+		    	if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+			      	var target = $(this.hash);
+			      	target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+		      		if (target.length) {
+		        		$('.single').animate({
+		          			scrollTop: target.offset().top
+		        			}, 500);
+		        		return false;
+		      		}
+		    	}
+		  	});
+		});
+
 		var loading = document.getElementById('loading');
 		loading.classList.add('juicy');
 		var ugd_sections = SECTIONS();
-		var ugd_menu = MENU();
 		var ugd_query = QUERY();
 		setTimeout(
 			function() {
 				loading.classList.add('hidden');
 				ugd_sections.load();
 				ugd_query.load();
+				<?php if ( isset($_GET['section']) ) { ?>
+					ugd_sections.set(<?php echo $_GET['section']; ?>);
+				<?php } ?>
 			},
 			400
 		);

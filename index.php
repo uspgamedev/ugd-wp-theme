@@ -1,12 +1,9 @@
-
 <?php $sectionqueryargs = array(
 	"post_type" => "UGD_section",
 	"posts_per_page" => 9,
 	"orderby" => "menu_order",
 	"order" => "ASC"
 );
-
-$querypage = [];
 ?>
 
 <?php get_header(); ?>

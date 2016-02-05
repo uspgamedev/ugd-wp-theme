@@ -27,10 +27,15 @@ $menusections = get_posts(
   			<?php
       			for ($i=0; $i < count($menusections); $i++) {
       				$menu_item = $menusections[$i];
+                    $href = "#";
+                    if ( is_attachment() || is_singular() ) {
+                        $href = "?section=" . $i;
+                    }
+
       				if ( !(get_post_meta($menu_item->ID, 'section_type', true) == 'cover') ) {
-                        printf('<li class="navigation-menu-item white-text"><a href="#">%1$s</a></li>', $menu_item->post_title);
+                        printf('<li class="navigation-menu-item white-text"><a href="%2$s">%1$s</a></li>', $menu_item->post_title, $href);
                     } else {
-                        printf('<li class="hidden navigation-menu-item white-text"><a href="#">%1$s</a></li>', $menu_item->post_title);
+                        printf('<li class="hidden navigation-menu-item white-text"><a href="%2$s">%1$s</a></li>', $menu_item->post_title, $href);
                     }
       			}
   			?>

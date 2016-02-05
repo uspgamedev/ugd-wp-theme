@@ -73,7 +73,7 @@ function QUERY() {
 	var next_btn;
 	var prev_btn;
 	var data;
-	var loading = $('#loading');
+	var loading = document.getElementById('loading');
 
 	// Private Methods
 	function update_next_action(button) {
@@ -82,7 +82,8 @@ function QUERY() {
 			
 			var container = $('#query-' + data.query_id).parent();
 			container.fadeOut(200);
-			loading.fadeIn(200);
+			loading.classList.remove('hidden');
+			loading.classList.remove('juicy');
 			console.log('requesting new page...');
 			
 			$.post(
@@ -91,8 +92,11 @@ function QUERY() {
 				function (returnedData) {
 					container.empty();
 					container.append(returnedData);
-					loading.fadeOut(200);
 					container.fadeIn(200);
+					loading.classList.add('juicy');
+					setTimeout(function() {
+						loading.classList.add('hidden');
+					}, 200)
 					
 					obj.load();
 					console.log('new page gotten!');
@@ -106,7 +110,8 @@ function QUERY() {
 
 			var container = $('#query-' + data.query_id).parent();
 			container.fadeOut(200);
-			loading.fadeIn(200);
+			loading.classList.remove('hidden');
+			loading.classList.remove('juicy');
 			console.log('requesting new page...');
 			
 			$.post(
@@ -115,8 +120,11 @@ function QUERY() {
 				function (returnedData) {
 					container.empty();
 					container.append(returnedData);
-					loading.fadeOut(200);
 					container.fadeIn(200);
+					loading.classList.add('juicy');
+					setTimeout(function() {
+						loading.classList.add('hidden');
+					}, 200)
 					
 					obj.load();
 					console.log('new page gotten!');
@@ -302,8 +310,8 @@ function MENU() {
 
 	// START UP
 	toggler.onclick = toggle_menu;
-
 	togglees.content.onclick = close_menu;
+	//window.onresize = close_menu;	
 
 	return obj;
 };
@@ -317,63 +325,11 @@ function SINGLE() {
 	var data;
 	var loading = $('#loading');
 
-	// Private Methods
-	function update_next_action(button) {
-		button.onclick = function() {
-			set_data(this, 'next');
-			
-			var container = $('#query-' + data.query_id).parent();
-			container.fadeOut(200);
-			loading.fadeIn(200);
-			console.log('requesting new page...');
-			
-			$.post(
-				ajaxurl,
-				data,
-				function (returnedData) {
-					container.empty();
-					container.append(returnedData);
-					loading.fadeOut(200);
-					container.fadeIn(200);
-					
-					obj.load();
-					console.log('new page gotten!');
-				}
-			);
-		}
-	}
-	function update_prev_action(button) {
-		button.onclick = function() {
-			set_data(this, 'prev');
-
-			var container = $('#query-' + data.query_id).parent();
-			container.fadeOut(200);
-			loading.fadeIn(200);
-			console.log('requesting new page...');
-			
-			$.post(
-				ajaxurl,
-				data,
-				function (returnedData) {
-					container.empty();
-					container.append(returnedData);
-					loading.fadeOut(200);
-					container.fadeIn(200);
-					
-					obj.load();
-					console.log('new page gotten!');
-				}
-			);
-		}
-	}
 	function set_data(button, intention) {
 		var params = document.getElementById( button.getAttribute('params') );
 		data = {
-			action: 'changepage',
-			intention: intention,
-			query_id: params.getAttribute('query-id'),
-			current_page: params.getAttribute('current-page'),
-			page_limit: params.getAttribute('page-limit')
+			action: 'get_post',
+			post_id: params.id
 		}
 	}
 	function update() {
