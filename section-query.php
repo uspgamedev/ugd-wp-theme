@@ -39,9 +39,9 @@ $paged = $cat_query->get( 'paged', 1 );
 					<div class="col-xs-6 col-md-4">
 						<a  href="#"
 							params="query_<?php echo $section_content; ?>_params"
-							class="query-nav-btn-prev red-text">
+							class="query-nav-btn-prev white-text">
 
-							<i class="icon-left glyphicon glyphicon-backward"></i> Prev
+							<i class="icon-left glyphicon glyphicon-backward"></i> <span class="hidden-xs">Anterior</span>
 						</a>
 					</div>
 				<?php } else { ?>
@@ -54,9 +54,9 @@ $paged = $cat_query->get( 'paged', 1 );
 					<div class="col-xs-6 col-md-4">
 						<a  href="#"
 							params="query_<?php echo $section_content; ?>_params"
-							class="query-nav-btn-next red-text">
+							class="query-nav-btn-next white-text">
 
-							Next <i class="icon-right glyphicon glyphicon-forward"></i>
+							<span class="hidden-xs">Próxima</span> <i class="icon-right glyphicon glyphicon-forward"></i>
 						</a>
 					</div>
 				<?php } else { ?>

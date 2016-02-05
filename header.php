@@ -16,7 +16,7 @@
 
 	<?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?> >
+<body class="<?php foreach( get_body_class( array('black') ) as $class ) echo $class . ' '; ?>" >
 	<div id="wrapper" class="transition dark black-xs white-text">
 		<!-- Navbar -->
 		<?php get_template_part('navbar'); ?>

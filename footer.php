@@ -18,7 +18,7 @@
 		      		if (target.length) {
 		        		$('.single').animate({
 		          			scrollTop: target.offset().top
-		        			}, 500);
+		        			}, 500, 'swing');
 		        		return false;
 		      		}
 		    	}
@@ -29,6 +29,7 @@
 		loading.classList.add('juicy');
 		var ugd_sections = SECTIONS();
 		var ugd_query = QUERY();
+		METAMENU();
 		setTimeout(
 			function() {
 				loading.classList.add('hidden');

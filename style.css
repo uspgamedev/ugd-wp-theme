@@ -172,6 +172,23 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 	}
 /* ============================== */
 
+/* === Meta Navigation Bar ====== */
+
+	#meta-nav-btn {
+	    position: absolute;
+	    right: 0;
+	    top: 0;
+	    height: 48px;
+	    line-height: 48px;
+	    width: 48px;
+	    border-bottom-left-radius: 8px;
+    }
+	@media (max-width: 767px) {
+		#meta-nav-btn {
+			background-color: rgba(30,30,30,0.5);
+		}
+    }
+
 /* === Sections Classes ============= */
 	
 
@@ -210,6 +227,7 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		.query-nav {
 			margin-bottom: 30px;
 			height: 3em;
+			word-break: break-all;
 		}
 		.query-nav-btn-prev, .query-nav-btn-next {
 			line-height: 2em;
@@ -218,12 +236,7 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		.icon-left, .icon-right {
 			vertical-align: -1px;
 		}
-		.icon-left {
-			padding-right: 15px;
-		}
-		.icon-right {
-			padding-left: 15px;
-		}
+		
 		/* --- .post-grid --- */
 			.post-grid {
 				width: auto;
@@ -232,6 +245,12 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 			@media (min-width: 768px) {
 				.post-grid {
 					width: 708px;
+				}
+				.icon-left {
+					padding-right: 15px;
+				}
+				.icon-right {
+					padding-left: 15px;
 				}
 			}
 			@media (min-width: 992px) {
@@ -516,6 +535,9 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		height: 48px;
 	}
 	
+	.inline-block {
+		display: inline-block;
+	}
 	.unselectable {
 		-webkit-user-select: none;
 		-moz-user-select: none;
@@ -618,6 +640,13 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 			transform: translate3d(215px, 0, 0);
 		}
 	}
+	.displace-vertical {
+		-webkit-transform: translate3d(0, 215px, 0);
+		-moz-transform: translate3d(0, 215px, 0);
+		-ms-transform: translate3d(0, 215px, 0);
+		-o-transform: translate3d(0, 215px, 0);
+		transform: translate3d(0, 215px, 0);
+	}
 
 
 	@-webkit-keyframes rotation {
@@ -647,10 +676,10 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 
 /* === Color Classes ============ */
 	a {
-		color: #E54B4B;
+		color: #62F2AA;
 	}
 	a:active, a:focus, a:hover {
-		color: #62F2AA;
+		color: #E54B4B;
 		text-decoration: none;
 	}
 
@@ -726,11 +755,11 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 	.query a:active, .query a:focus, .query a:hover {
 		color: #62F2AA;
 	}
-	.query a.red-text:active, .query a.red-text:focus, .query a.red-text:hover {
+	.query a.white-text:active, .query a.white-text:focus, .query a.white-text:hover {
 		border-color: #62F2AA;
 	}
-	.query a.red-text {
-		border: 1px solid #E54B4B;
+	.query a.white-text {
+		border: 1px solid #EFEFEF;
 		border-radius: 4px;
 	}
 

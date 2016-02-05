@@ -41,9 +41,9 @@
 						<header class="single-header">
 							<h3>
 								<span class="intro"><?php the_title(); ?></span>
-								<small class="hidden-md hidden-lg">
-									<a class="grey-text" href="#meta">
-										<i class="icon-right glyphicon glyphicon-arrow-down"></i> Ir para o Fim
+								<small class="hidden-md hidden-lg inline-block">
+									<a class="grey-text" href="#bottom">
+										[ Pular Texto <i class="icon-right glyphicon glyphicon-arrow-down"></i> ]
 									</a>
 								</small>
 							</h3>
@@ -68,6 +68,7 @@
 					</div>
 				</div>
 			</div>
+			<div id="bottom"></div>
 		</div>
 	</div>
 <?php } ?>

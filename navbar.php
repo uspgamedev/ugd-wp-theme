@@ -24,22 +24,27 @@ $menusections = get_posts(
         <div id="navigation-menu" class="navigation-menu transition">
 
       		<ul class="list-unstyled">
-  			<?php
-      			for ($i=0; $i < count($menusections); $i++) {
-      				$menu_item = $menusections[$i];
-                    $href = "#";
-                    if ( is_attachment() || is_singular() ) {
-                        $href = "?section=" . $i;
-                    }
+      			<?php
+          			for ($i=0; $i < count($menusections); $i++) {
+          				$menu_item = $menusections[$i];
+                        $href = "#";
+                        if ( is_attachment() || is_singular() ) {
+                            $href = "?section=" . $i;
+                        }
 
-      				if ( !(get_post_meta($menu_item->ID, 'section_type', true) == 'cover') ) {
-                        printf('<li class="navigation-menu-item white-text"><a href="%2$s">%1$s</a></li>', $menu_item->post_title, $href);
-                    } else {
-                        printf('<li class="hidden navigation-menu-item white-text"><a href="%2$s">%1$s</a></li>', $menu_item->post_title, $href);
-                    }
-      			}
-  			?>
+          				if ( !(get_post_meta($menu_item->ID, 'section_type', true) == 'cover') ) {
+                            printf('<li class="navigation-menu-item white-text"><a href="%2$s">%1$s</a></li>', $menu_item->post_title, $href);
+                        } else {
+                            printf('<li class="hidden navigation-menu-item white-text"><a href="%2$s">%1$s</a></li>', $menu_item->post_title, $href);
+                        }
+          			}
+      			?>
 		    </ul>
     	</div>
+
+        <!-- Meta Toggle Button -->
+        <a href="#" id="meta-nav-btn" class="pull-right toggle-button" toggle-target="meta-menu">
+            <i class="glyphicon glyphicon-option-horizontal"></i>
+        </a>
   	</div>
 </nav>
