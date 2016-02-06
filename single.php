@@ -68,6 +68,9 @@
 							</div>
 						</div>
 					</div>
+					<div class="col-xs-12">
+						<?php comments_template(); ?>
+					</div>
 				</div>
 			</div>
 			<div id="bottom"></div>
