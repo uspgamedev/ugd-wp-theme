@@ -40,7 +40,7 @@
 					<div class="col-md-8">
 						<header class="single-header">
 							<h3>
-								<span class="intro"><?php the_title(); ?></span>
+								<span class="intro-font"><?php the_title(); ?></span>
 								<small class="hidden-md hidden-lg inline-block">
 									<a title="Pular Texto" class="grey-text" href="#bottom">
 										[ Pular Texto <i class="icon-right glyphicon glyphicon-arrow-down"></i> ]

@@ -19,7 +19,7 @@ $paged = $cat_query->get( 'paged', 1 );
 <div id="query-<?php echo $section_content; ?>" class="query-container">
 	<div class="unselectable">
 		<div class="post-grid">
-			<!--header class="page-header intro">
+			<!--header class="page-header intro-font">
 				<h3><?php echo get_category($section_content)->name ?></h3>
 			</header-->
 			<?php while ( $cat_query->have_posts() ) : $cat_query->the_post(); ?>

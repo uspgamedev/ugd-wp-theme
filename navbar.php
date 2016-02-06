@@ -12,7 +12,7 @@ $menusections = get_posts(
 
 ?>
 
-<nav id="masthead" class="dark-translucid intro transition">
+<nav id="masthead" class="dark-translucid intro-font transition">
 	<div class="container-fluid text-center unselectable">
 
         <!-- Toggle Button -->

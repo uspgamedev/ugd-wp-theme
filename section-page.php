@@ -43,7 +43,7 @@ $page = get_post( $section_content );
 			</div>
 			<div class="col-md-6 page-entry content-height scrollable">
 				<div class="container-fluid">
-					<header class="page-header intro">
+					<header class="page-header intro-font">
 						<h3><?php echo $page->post_title; ?></h3>
 					</header>
 					<div class="page-content">

@@ -24,7 +24,7 @@ $post = get_post($requested_post);
 	</div>
 	<div class="single-content page-entry">
 		<div class="container-fluid">
-			<header class="page-header intro">
+			<header class="page-header intro-font">
 				<h3><?php echo $post->post_title; ?></h3>
 			</header>
 			<div class="page-content">

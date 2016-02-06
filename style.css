@@ -20,7 +20,7 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 	body {
 		font-family: "Roboto", helvetica, arial, sans-serif;
 	}
-	.intro {
+	.intro-font {
 		font-family: 'intro_regular';
 	}
 /* ============================== */
@@ -640,42 +640,6 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		z-index: -1;
 	}
 
-	/* --- .vert-algn --- */
-		.vert-algn {
-			position: relative;
-			display: block;
-			top: 50%;
-			-webkit-transform: translateY(-50%);
-			-moz-transform: translateY(-50%);
-			-ms-transform: translateY(-50%);
-			-o-transform: translateY(-50%);
-			transform: translateY(-50%);
-		}
-		@media (min-width: 768px) {
-			.vert-algn-sm {
-				position: relative;
-				display: block;
-				top: 50%;
-				-webkit-transform: translateY(-50%);
-				-moz-transform: translateY(-50%);
-				-ms-transform: translateY(-50%);
-				-o-transform: translateY(-50%);
-				transform: translateY(-50%);
-			}
-		}
-		@media (min-width: 992px) {
-			.vert-algn-md {
-				position: relative;
-				display: block;
-				top: 50%;
-				-webkit-transform: translateY(-50%);
-				-moz-transform: translateY(-50%);
-				-ms-transform: translateY(-50%);
-				-o-transform: translateY(-50%);
-				transform: translateY(-50%);
-			}
-		}
-	/* --- .vert-algn --- */
 	/* ------------------ */
 	
 /* ============================== */
