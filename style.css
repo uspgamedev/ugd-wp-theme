@@ -5,10 +5,10 @@ Theme URI: http://github.com/uspgamedev/ugd-wp-theme/
 Author: W. Akira
 Author URI: http://github.com/orenjiakira/
 Description: Responsive template using bootstrap and real time navigation.
-Version: 1.0a
+Version: 1.0
 License: This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
 License URI: http://creativecommons.org/licenses/by-nc-sa/4.0/
-Tags: black, blue, white, dark, one-column, fluid-layout, responsive-layout, custom-menu, featured-images, microformats, sticky-post
+Tags: black, blue, dark, horizontal, sections, custom, responsive, ajax, animation
 Text Domain: UGD
 
 UGD WordPress Theme © 2015 W. Akira
@@ -267,10 +267,10 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 			outline: none;
 		}
 		.post-permalink:hover .post-thumb {
-			border: solid 3px #62F2AA;
+			border: solid 3px #75ffba;
 		}
 		.post-permalink:hover {
-			color: #62F2AA;
+			color: #75ffba;
 			text-decoration: none
 		}
 		.post-header { 
@@ -282,6 +282,7 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		.post-content {
 		}
 		.query-nav {
+			margin-top: 30px;
 			margin-bottom: 30px;
 			height: 3em;
 			word-break: break-all;
@@ -432,7 +433,7 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 				left: 0px;
 				right: 0px;
 				height: 360px;
-				box-shadow: 0 3px 5px black;
+				box-shadow: 0 3px 5px #1a1a1a;
 			}
 			@media (min-width: 768px) {
 				.page-entry {
@@ -489,7 +490,7 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 				left: 0;
 				right: 0;
 				position: relative;
-				box-shadow: 0 3px 5px black;
+				box-shadow: 0 3px 5px #1a1a1a;
 			}
 			@media (min-width: 768px) {
 				.single-img {
@@ -719,7 +720,7 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 
 /* === Color Classes ============ */
 	a {
-		color: #62F2AA;
+		color: #75ffba;
 	}
 	a:active, a:focus, a:hover {
 		color: #E54B4B;
@@ -758,10 +759,10 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		color: #E54B4B;
 	}
 	.greenlue {
-		background-color: #62F2AA;
+		background-color: #75ffba;
 	}
 	.greenlue-text {
-		color: #62F2AA;
+		color: #75ffba;
 	}
 	.grey { 
 		background-color: #A5A5A5;
@@ -792,17 +793,17 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		text-decoration: none;
 	}
 	#masthead .greenlue-text, #masthead .greenlue-text a {
-		color: #62F2AA;
+		color: #75ffba;
 	}
 
 	.query a {
 		color: #efefef;
 	}
 	.query a:active, .query a:focus, .query a:hover {
-		color: #62F2AA;
+		color: #75ffba;
 	}
 	.query a.white-text:active, .query a.white-text:focus, .query a.white-text:hover {
-		border-color: #62F2AA;
+		border-color: #75ffba;
 	}
 	.query a.white-text {
 		border: 1px solid #EFEFEF;
@@ -810,7 +811,7 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 	}
 
 	a.greenlue-text {
-		color: #62F2AA;
+		color: #75ffba;
 	}
 	a.greenlue-text:active, a.greenlue-text:focus, a.greenlue-text:hover {
 		color: #E54B4B !important;	
@@ -819,7 +820,7 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		color: #E54B4B;
 	}
 	a.red-text:active, a.red-text:focus, a.red-text:hover {
-		color: #62F2AA !important;	
+		color: #75ffba !important;	
 	}
 
 /* ============================== */

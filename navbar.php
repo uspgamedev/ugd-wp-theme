@@ -58,13 +58,13 @@ $menusections = get_posts(
                                 <?php if ( current_user_can('edit_posts') ) { ?>
                                     <li class="meta-area-item">
                                         <a title="Admin Area" href="<?php echo admin_url(); ?>">
-                                            <i class="normal-size icon glyphicon glyphicon-wrench"></i> <span class="hidden-xs">Admin Area</span>
+                                            <i class="normal-size icon glyphicon glyphicon-wrench"></i> <span class="hidden-xs">Dashboard</span>
                                         </a>
                                     </li>
                                 <?php } ?>
                                 <li class="meta-area-item">
                                     <a title="Edit Profile" href="<?php echo get_edit_user_link() ?> ">
-                                        <i class="normal-size icon glyphicon glyphicon-user"></i> <span class="hidden-xs">Edit Profile</span>
+                                        <i class="normal-size icon glyphicon glyphicon-user"></i> <span class="hidden-xs">Editar Perfil</span>
                                     </a>
                                 </li>
                                 <li class="meta-area-item">
@@ -74,8 +74,8 @@ $menusections = get_posts(
                                 </li>
                             <?php } else { ?>
                                 <li class="meta-area-item">
-                                    <a title="Sign Up" href="<?php echo get_home_url(); ?>/wp-login">
-                                        <i class="normal-size icon glyphicon glyphicon-plus"></i> <span class="hidden-xs">Sign Up</span>
+                                    <a title="Sign Up" href="<?php echo wp_registration_url(); ?>">
+                                        <i class="normal-size icon glyphicon glyphicon-plus"></i> <span class="hidden-xs">Registrar</span>
                                     </a>
                                 </li>
                                 <li class="meta-area-item">

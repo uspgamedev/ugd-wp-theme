@@ -7,10 +7,22 @@ This file requires the following variables to be set before inclusion:
 $section_content
 $requested_page
 
+Optionally, it can also have this variable to include additional parameters to the query:
+
+$additional_params
+
 */
 
 // QUERY SECTION
-$cat_query_args = array( 'cat' => $section_content, 'posts_per_page' => 6, 'paged' => $requested_page );
+$cat_query_args = array(
+	'cat' => $section_content,
+	'posts_per_page' => 6,
+	'paged' => $requested_page );
+
+if ( isset($additional_params) && is_array($additional_params) ) {
+	$cat_query_args = array_merge($cat_query_args, $additional_params);
+}
+
 $cat_query = new WP_Query($cat_query_args);
 $pagelimit = $cat_query->max_num_pages;
 $paged = $cat_query->get( 'paged', 1 );
@@ -44,7 +56,7 @@ $paged = $cat_query->get( 'paged', 1 );
 							params="query_<?php echo $section_content; ?>_params"
 							class="query-nav-btn-prev white-text">
 
-							<i class="icon-left glyphicon glyphicon-backward"></i> <span class="hidden-xs">Anterior</span>
+							<i class="icon-left glyphicon glyphicon-backward"></i> <span class="hidden-xs">Mais recentes</span>
 						</a>
 					</div>
 				<?php } else { ?>
@@ -58,7 +70,7 @@ $paged = $cat_query->get( 'paged', 1 );
 							params="query_<?php echo $section_content; ?>_params"
 							class="query-nav-btn-next white-text">
 
-							<span class="hidden-xs">Próxima</span> <i class="icon-right glyphicon glyphicon-forward"></i>
+							<span class="hidden-xs">Mais antigos</span> <i class="icon-right glyphicon glyphicon-forward"></i>
 						</a>
 					</div>
 				<?php } else { ?>
