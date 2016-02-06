@@ -3,10 +3,8 @@
 // COVER SECTION
 
 ?>
-<div class="vert-algn">
-	<div class="entry-thumb">
-		<div class="img logo" style="background-image: url('<?php header_image(); ?>');"></div>
-	</div>
+<div class="cover-thumb">
+	<div class="img logo" style="background-image: url('<?php header_image(); ?>');"></div>
 </div>
 <footer id="colophon" class="white-text unselectable">
 	<div class="container">

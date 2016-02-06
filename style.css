@@ -368,35 +368,32 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 
 	/* == COVER == */
 		.cover {
+			padding-top: 72px;
 			padding-bottom: 96px;
 		}
-		.list-item a {
-			display: block;
-			padding: 8px;
+		.cover-thumb {
+			height: 100%;
 		}
 		/* --- .img.logo --- */
 			.img.logo {
 				background-size: contain;
-				width: 220px;
-				height: 220px;
+				min-width: 50px;
+				max-width: 400px;
 				margin: 0 auto;
 			}
 			@media (min-width: 768px) {
 				.img.logo {
 					width: 320px;
-					height: 320px;
 				}
 			}
 			@media (min-width: 992px) {
 				.img.logo {
 					width: 360px;
-					height: 360px;
 				}
 			}
 			@media (min-width: 1200px) {
 				.img.logo {
 					width: 400px;
-					height: 400px;
 				}
 			}
 		/* ----------------- */
@@ -586,6 +583,11 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 	}
 	.border-left {
 		border-left: 2px solid;
+	}
+
+	.list-item a {
+		display: block;
+		padding: 8px;
 	}
 
 	#loading {
