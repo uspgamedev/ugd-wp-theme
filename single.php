@@ -8,21 +8,14 @@
 				<div id="single-<?php echo $post->ID; ?>-thumbnail" class="img single-img">
 					<div class="sample-img img"></div>
 					<style>
-						<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail' );
+						<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'medium' );
 						$thumburl = $thumb['0']; ?>
 						#single-<?php echo $post->ID; ?>-thumbnail {
 							background-image:url('<?php echo $thumburl; ?>')
 						}
-						<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'medium' );
-						$thumburl = $thumb['0']; ?>
-						@media (min-width: 768px) {
-							#single-<?php echo $post->ID; ?>-thumbnail {
-								background-image:url('<?php echo $thumburl; ?>')
-							}
-						}
 						<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' );
 						$thumburl = $thumb['0']; ?>
-						@media (min-width: 992px) {
+						@media (min-width: 600px) {
 							#single-<?php echo $post->ID; ?>-thumbnail {
 								background-image:url('<?php echo $thumburl; ?>')
 							}

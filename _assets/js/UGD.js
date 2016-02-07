@@ -8,6 +8,9 @@ function SECTIONS() {
 	var Sections;
 	var Size;
 	var Menu;
+	var Pagination;
+	var input_fields;
+	var isInputFocus = false;
 
 	// Private Methods
 	function update() {
@@ -39,25 +42,39 @@ function SECTIONS() {
 		// Setting Private Attr Values
 		Selected = 0;
 		Sections = document.getElementsByClassName('section');
-		Menu = MENU();
 		Size = Sections.length;
 
-		// Loading Controllers
+		// LOGICS
+		Menu = MENU();
+		Pagination = QUERY();
+		SEARCH(Pagination);
 		INPUT(obj);
+		
+		$('input').focus(
+			function() {isInputFocus = true;}
+		);
+		$('input').blur(
+			function() {isInputFocus = false;}
+		);
+
+		// Loading Controllers
 		update();
 	}
 
 	obj.set = function(target_index) {
+		if (isInputFocus == true) return;
 		// If something sets it to a crazy number, it goes back to a decent one.
 		Selected = Math.abs( target_index % Size );
 		update();
 	}
 	obj.next = function() {
+		if (isInputFocus == true) return;
 		Selected += 1;
 		if (Selected >= Size) Selected = Size-1;
 		update();
 	}
 	obj.prev = function() {
+		if (isInputFocus == true) return;
 		Selected -= 1;
 		if (Selected < 0) Selected = 0;
 		update();
@@ -74,45 +91,32 @@ function QUERY() {
 	var prev_btn;
 	var data;
 	var loading = document.getElementById('loading');
+	var container;
+
 
 	// Private Methods
-	function update_next_action(button) {
-		button.onclick = function() {
-			set_data(this, 'next');
-			
-			var container = $('#query-' + data.query_id).parent();
-			container.fadeOut(200);
-			loading.classList.remove('hidden');
-			loading.classList.remove('juicy');
-			console.log('requesting new page...');
-			
-			$.post(
-				ajaxurl,
-				data,
-				function (returnedData) {
-					container.empty();
-					container.append(returnedData);
-					container.fadeIn(200);
-					loading.classList.add('juicy');
-					setTimeout(function() {
-						loading.classList.add('hidden');
-					}, 200)
-					
-					obj.load();
-					console.log('new page gotten!');
-				}
-			);
-		}
+	function set_container() {
+		container = $('#query-' + data.cat_id).parent();
 	}
-	function update_prev_action(button) {
-		button.onclick = function() {
-			set_data(this, 'prev');
+	function fadeout_things() {
+		container.fadeOut(200);
+		loading.classList.remove('hidden');
+		loading.classList.remove('juicy');
+		console.log('requesting new page...');
+	}
+	function fadein_things() {
+		container.fadeIn(200);
+		loading.classList.add('juicy');
+		setTimeout(function() {
+			loading.classList.add('hidden');
+		}, 200)
+	}
 
-			var container = $('#query-' + data.query_id).parent();
-			container.fadeOut(200);
-			loading.classList.remove('hidden');
-			loading.classList.remove('juicy');
-			console.log('requesting new page...');
+	function update_nav_action(button) {
+		button.onclick = function() {
+			set_data(this);
+			set_container();
+			fadeout_things();
 			
 			$.post(
 				ajaxurl,
@@ -120,41 +124,43 @@ function QUERY() {
 				function (returnedData) {
 					container.empty();
 					container.append(returnedData);
-					container.fadeIn(200);
-					loading.classList.add('juicy');
-					setTimeout(function() {
-						loading.classList.add('hidden');
-					}, 200)
-					
+					fadein_things();
+
 					obj.load();
 					console.log('new page gotten!');
 				}
 			);
+			return false;
 		}
 	}
-	function set_data(button, intention) {
-		var params = document.getElementById( button.getAttribute('params') );
-		data = {
-			action: 'changepage',
-			intention: intention,
-			query_id: params.getAttribute('query-id'),
-			current_page: params.getAttribute('current-page'),
-			page_limit: params.getAttribute('page-limit')
+	function set_data(button) {
+		var category = button.getAttribute('category-id');
+		var target = button.getAttribute('target');
+		var search = button.getAttribute('search');
+		if ( search != undefined || search == "") {
+			data = {
+				action: 'section_setpage_search',
+				cat_id: category,
+				target_page: target,
+				search_params: search
+			}
+		} else {
+			data = {
+				action: 'section_setpage_nosearch',
+				cat_id: category,
+				target_page: target
+			}
 		}
 	}
 	function update() {
-		for (var i = 0; i < next_btn.length; i++) {
-			update_next_action( next_btn[i], i );
-		};
-		for (var i = 0; i < prev_btn.length; i++) {
-			update_prev_action( prev_btn[i], i );
+		for (var i = 0; i < nav_btn.length; i++) {
+			update_nav_action( nav_btn[i], i );
 		};
 	}
 	
 	// Public Methods
 	obj.load = function() {
-		next_btn = document.getElementsByClassName('query-nav-btn-next');
-		prev_btn = document.getElementsByClassName('query-nav-btn-prev');
+		nav_btn = document.getElementsByClassName('query-nav-btn');
 		update();
 	}
 
@@ -252,8 +258,85 @@ function INPUT(logic) {
 	load_menu_items();
 }
 
-// Dropdown Toggle Menu
+function SEARCH(logic) {
+	var data = {
+		action: 'section_setpage_search'
+	}
+	var loading = document.getElementById('loading');
+	var container;
 
+
+	// Private Methods
+	function set_container() {
+		container = $('#query-' + data.cat_id).parent();
+	}
+	function fadeout_things() {
+		container.fadeOut(200);
+		loading.classList.remove('hidden');
+		loading.classList.remove('juicy');
+		console.log('requesting new page...');
+	}
+	function fadein_things() {
+		container.fadeIn(200);
+		loading.classList.add('juicy');
+		setTimeout(function() {
+			loading.classList.add('hidden');
+		}, 200)
+	}
+
+	// EVENT LOAD
+	function load_search_input() {
+		var search_boxes = document.getElementsByClassName('search-form-input');
+		console.log('loading search_boxes...');
+		for (var i = 0; i < search_boxes.length; i++) {
+			check_text_input(search_boxes[i]);
+		};
+	}
+
+	function update(input, cat_id) {
+		set_data(input, cat_id);
+		set_container();
+		fadeout_things()
+
+		$.post(
+			ajaxurl,
+			data,
+			function(returnedData) {
+				container.empty();
+				container.append(returnedData);
+				fadein_things();
+
+				logic.load();
+				console.log('new page gotten!');
+			}
+		);
+	}
+
+	function set_data(input, cat_id) {
+		if (input != "") {
+			data.action = "section_setpage_search";
+		} else {
+			data.action = "section_setpage_nosearch";
+		}
+		data.search_params = input;
+		data.cat_id = cat_id;
+	}
+
+	function check_text_input(inputbox) {
+		console.log(inputbox);
+		inputbox.onkeyup = function(e) {
+			if (e.which == "13") {
+				var text = this.value;
+				var cat = this.getAttribute('category-id');
+				update(text, cat);
+			}
+		}
+	}
+
+	load_search_input();
+}
+
+// Dropdown Toggle Menu
 function MENU() {
 	var obj = {};
 	

@@ -12,21 +12,14 @@ $page = get_post( $section_content );
 				<div class="page-img "> 
 					<figure id="page-<?php echo $page->ID; ?>-img" class="img"></figure>
 					<style>
-						<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($page->ID), 'thumbnail' );
+						<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($page->ID), 'medium' );
 						$thumburl = $thumb['0']; ?>
 						#page-<?php echo $page->ID; ?>-img {
 							background-image:url('<?php echo $thumburl; ?>')
 						}
-						<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($page->ID), 'medium' );
-						$thumburl = $thumb['0']; ?>
-						@media (min-width: 768px) {
-							#page-<?php echo $page->ID; ?>-img {
-								background-image:url('<?php echo $thumburl; ?>')
-							}
-						}
 						<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($page->ID), 'large' );
 						$thumburl = $thumb['0']; ?>
-						@media (min-width: 992px) {
+						@media (min-width: 600px) {
 							#page-<?php echo $page->ID; ?>-img {
 								background-image:url('<?php echo $thumburl; ?>')
 							}

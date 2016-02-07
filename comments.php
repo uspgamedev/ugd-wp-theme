@@ -37,15 +37,19 @@
 	<?php endif; ?>
 
 	<?php
+	$req = get_option( 'require_name_email' );
+	$aria_req = ( $req ? " aria-required='true'" : '' );
+	$required_text = "<h4 class='red-text'>Fields with * are mandatory.</h4>";
+
 	$fields =  array(
 	  	'author' =>
-		    '<div class="form-group comment-form-author"><label for="author">' . __( 'Name', 'UGD' ) . '</label> ' .
+		    '<div class="red-text form-group comment-form-author"><label for="author">' . __( 'Name', 'UGD' ) . '</label> ' .
 		    ( $req ? '<span class="required">*</span>' : '' ) .
 		    '<input class="form-control" id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
 		    '" size="30"' . $aria_req . ' /></div>',
 
 	  	'email' =>
-		    '<div class="form-group comment-form-email"><label for="email">' . __( 'Email', 'UGD' ) . '</label> ' .
+		    '<div class="red-text form-group comment-form-email"><label for="email">' . __( 'Email', 'UGD' ) . '</label> ' .
 		    ( $req ? '<span class="required">*</span>' : '' ) .
 		    '<input class="form-control"  id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
 		    '" size="30"' . $aria_req . ' /></div>',

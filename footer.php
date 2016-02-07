@@ -5,7 +5,6 @@
 </div><!-- #wrapper -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/_assets/libs/hammer/hammer.min.js"></script>
-<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/_assets/js/height_fix.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/_assets/js/UGD.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {

@@ -24,7 +24,7 @@
                             </a>
                         </li>
                         <li class="meta-area-item">
-                            <a title="Log Out" href="<?php echo wp_logout_url(); ?>">
+                            <a title="Log Out" class="red-text" href="<?php echo wp_logout_url(); ?>">
                                 <i class="normal-size icon glyphicon glyphicon-off"></i> <span class="hidden-xs">Log Out</span>
                             </a>
                         </li>
@@ -35,7 +35,7 @@
                             </a>
                         </li>
                         <li class="meta-area-item">
-                            <a title="Log In" href="<?php echo wp_login_url(); ?> ">
+                            <a title="Log In" class="greenlue-text"  href="<?php echo wp_login_url(); ?> ">
                                 <i class="normal-size icon glyphicon glyphicon-off"></i> <span class="hidden-xs">Log In</span>
                             </a>
                         </li>
