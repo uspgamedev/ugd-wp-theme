@@ -54,7 +54,7 @@ $menusections = get_posts(
                     <!-- User Profile Options -->
                     <div class="meta-area-container small">
                         <ul class="meta-area list-inline list-unstyled pull-right">
-                            <?php if ( is_user_logged_in () ) { ?>
+                            <?php if ( is_user_logged_in() ) { ?>
                                 <?php if ( current_user_can('edit_posts') ) { ?>
                                     <li class="meta-area-item">
                                         <a title="Admin Area" href="<?php echo admin_url(); ?>">

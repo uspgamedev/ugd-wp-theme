@@ -42,7 +42,7 @@
 							<h3>
 								<span class="intro-font"><?php the_title(); ?></span>
 								<small class="hidden-md hidden-lg inline-block">
-									<a title="Pular Texto" class="grey-text" href="#bottom">
+									<a title="Pular Texto" class="grey-text" href="#meta">
 										[ Pular Texto <i class="icon-right glyphicon glyphicon-arrow-down"></i> ]
 									</a>
 								</small>
@@ -52,7 +52,7 @@
 							<?php the_content(); ?>
 						</div>
 					</div>
-					<div class="col-md-4">
+					<div id="meta" class="col-md-4">
 						<div class="row">
 							<div class="single-meta border-left">
 								<h4 class="bold text-uppercase"><?php echo get_post_meta($post->ID, 'meta_title', true); ?></h4>

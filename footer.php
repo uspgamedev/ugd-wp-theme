@@ -9,7 +9,7 @@
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/_assets/js/UGD.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-
+		/*
 		$(function() {
 		  	$('a[href*="#"]:not([href="#"])').click(function() {
 		    	if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -24,7 +24,7 @@
 		    	}
 		  	});
 		});
-
+		*/
 		var loading = document.getElementById('loading');
 		loading.classList.add('juicy');
 		var ugd_sections = SECTIONS();
