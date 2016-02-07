@@ -17,7 +17,7 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 */
 
 /* === Font Styles ============== */
-	body {
+	body, .not-intro-font {
 		font-family: "Roboto", helvetica, arial, sans-serif;
 	}
 	.intro-font {
@@ -250,6 +250,50 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
     	min-width: 48px;
     }
 
+/* === Search Form ================== */
+	.searchbar {
+		position: relative;
+		height: 144px;
+		bottom: 0;
+		box-shadow: 0 -1px 5px #1a1a1a; 
+		margin-bottom: 32px;
+		border-radius: 8px;
+	}
+	.search-form {
+		padding: 20px 0;
+	}
+	.search-results {
+		line-height: 3.2rem;
+		padding: 10px 0 30px;
+	}
+	.searchbar input[type="text"] {
+		display: inline-block;
+		border-radius: 8px;
+		height: 32px;
+		padding-right: 32px
+	}
+	.search-icon {
+		position: absolute;
+		right: 16px;
+		height: 72px;
+		line-height: 72px;
+		width: 32px;
+		color: black;
+	}
+	@media (min-width: 768px) {
+		.search-icon {
+			height: 96px;
+			line-height: 96px;
+		}
+		.searchbar {
+			height: 96px;
+		}
+		.search-form, .search-results {
+			padding: 32px 0;
+		}
+	}
+/* ================================== */
+
 /* === Sections Classes ============= */
 	
 
@@ -260,7 +304,8 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 			overflow-y: auto;
 		}
 		.query-container {
-			padding-top: 48px;
+			margin-top: 48px;
+			padding-top: 24px;
 		}
 		.post {
 		}
@@ -297,6 +342,13 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		}
 		.icon, .icon-left, .icon-right {
 			vertical-align: -1px;
+		}
+
+		.icon-block i {
+			display: block;
+			width: 32px;
+			height: 32px;
+			line-height: 32px;
 		}
 		
 		/* --- .post-grid --- */
@@ -660,7 +712,9 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 	
 	.inline-block {
 		display: inline-block;
+		vertical-align: middle;
 	}
+
 	.unselectable {
 		-webkit-user-select: none;
 		-moz-user-select: none;

@@ -77,6 +77,8 @@ $paged = $cat_query->get( 'paged', 1 );
 					<div class="col-xs-6"></div>
 				<?php } ?>
 			</nav>
+			<?php include(locate_template('searchform.php')); ?>
 		</div>
 	</div>
 </div>
+
