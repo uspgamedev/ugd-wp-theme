@@ -23,7 +23,10 @@ function UGD_ajax_script() { ?>
 
 register_nav_menu( 'domains', __( 'Domains Menu' ) );
 
+$POSTS_PER_PAGE = get_option('posts_per_page');
+
 get_template_part('functions', 'comments');
 get_template_part('functions', 'section-query');
+
 
 ?>

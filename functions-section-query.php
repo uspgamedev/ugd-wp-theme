@@ -75,23 +75,25 @@ function section_setpage_search() {
 
 
 function get_section_query_no_search($category_id, $page = 1) {
+	global $POSTS_PER_PAGE;
 	return new WP_Query(
 		array(
 			'cat' => $category_id,
-			'posts_per_page' => 6,
+			'posts_per_page' => $POSTS_PER_PAGE,
 			'paged' => $page
 		)
 	);
 }
 
 function get_section_query_by_search($category_id, $page = 1, $search_params) {
+	global $POSTS_PER_PAGE;
 	// We build the query using the array of parameters given
 	$search = section_query_process_search($search_params);
 	return new WP_Query( 
 		array_merge(
 			array(
 				'cat' => $category_id,
-				'posts_per_page' => 6,
+				'posts_per_page' => $POSTS_PER_PAGE,
 				'paged' => $page,
 			),
 			$search
