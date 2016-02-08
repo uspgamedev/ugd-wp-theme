@@ -19,7 +19,7 @@ $category = $cat_query->get( 'cat' );
 		<div class="post-grid">
 			
 			<?php echo ( isset($search_input) ? '<div class="container-fluid">
-				<div class="alert">Searching for: ' . $search_input . '</div>
+				<div class="alert alert-success">Searching for: ' . $search_input . '</div>
 				</div>' : "" ); ?>
 				
 			<?php while ( $cat_query->have_posts() ) : $cat_query->the_post(); ?>
