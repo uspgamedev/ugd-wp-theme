@@ -66,7 +66,7 @@ function section_setpage_search() {
 		}
 	}
 
-	$search_input = sanitize_text_field($search_params);
+	$search_input = sanitized_input($search_params);
 	$cat_query = get_section_query_by_search($category, $target_page, $search_input);
 	include(locate_template('section-query-view.php'));
 
@@ -103,10 +103,20 @@ function get_section_query_by_search($category_id, $page = 1, $search_params) {
 
 function sanitized_input($input) {
 	// Sanitize the user input for security reasons
+	
+	$pos = strpos($input, "\'");
+	while ( $pos !== false ) {
+		$input[$pos] = "'";
+		$input[$pos + 1] = "";
+		$pos = strpos($input, "\'");
+	}
+
 	return sanitize_text_field($input);
 }
 
 function section_query_process_search($input) {
+	// Creates the query for the search
+
 	$simple_search = get_posts( array( 's' => $input, 'post_status' => 'publish', ) );
 	$taxonomy_search = get_posts_by_taxonomy_terms( explode(" ", $input) );
 

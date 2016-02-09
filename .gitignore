@@ -1,5 +1,9 @@
 *.log
 .htaccess
+
+.DS_Store
+._.*
+
 sitemap.xml
 sitemap.xml.gz
 wp-config.php

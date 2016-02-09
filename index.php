@@ -23,11 +23,6 @@
 		<div class="container-fluid h-100">
 			<?php include(locate_template('section-' . $section_type . '.php')); ?>
 		</div>
-		<?php if ($section_type == 'query') { ?>
-			<div class="searchbar-container post-grid">
-				<?php include(locate_template('searchform.php')); ?>
-			</div>
-		<?php } ?>
 	</div>
 <?php } ?>
 

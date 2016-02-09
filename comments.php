@@ -2,7 +2,7 @@
 <section id="comments">
 	<?php if ( have_comments() ) : 
 		global $comments_by_type;
-		$comments_by_type = &separate_comments( $comments );
+		$comments_by_type = separate_comments( $comments );
 		if ( ! empty( $comments_by_type['comment'] ) ) : ?>
 			<section id="comments-list" class="comments">
 				<h3 class="comments-title">

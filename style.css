@@ -256,8 +256,7 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		position: relative;
 		height: 144px;
 		bottom: 0;
-		box-shadow: 0 -1px 5px #1a1a1a; 
-		margin-bottom: 32px;
+		box-shadow: 0 -1px 5px #1a1a1a;
 		border-radius: 8px;
 	}
 	.search-form {
@@ -281,10 +280,10 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		color: black;
 	}
 	.searchbar-container {
-		position: absolute;
+		position: relative;
 		left: 0;
 		right: 0;
-		top: 72px;
+		margin: 30px auto 0 !important;
 	}
 	.search-title {
 		margin: 0px 0px 20px;
@@ -304,12 +303,9 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 	}
 	@media (max-width: 767px) {
 		.searchbar-container {
-			top: 0;
-			width: 100%!important;
+			
 		}
 		.searchbar {
-			padding-left: 48px;
-			padding-right: 48px;
 			height: 72px
 		}
 	}
@@ -325,15 +321,10 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 			overflow-y: auto;
 		}
 		.query-container {
-			margin-top: 144px;
 			padding-top: 24px;
 		}
-		@media (max-width: 767px) {
-			.query-container {
-				margin-top: 96px;
-			}
-		}
 		.post {
+			margin: 15px 0;
 		}
 		.post-permalink {
 			display: block;
@@ -342,16 +333,27 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 			outline: none;
 		}
 		.post-permalink:hover .post-thumb {
-			border: solid 3px #75ffba;
+			/*border: solid 3px #75ffba;*/
 		}
 		.post-permalink:hover {
 			color: #75ffba;
 			text-decoration: none
 		}
 		.post-header { 
-			margin-top: 1rem;
-			margin-bottom: 2rem;
+			position: absolute;
+			top: 0;
+			border-radius: 8px;
+			left: 0;
+			right: 0;
+			background-color: rgba(26,26,26,0.4);
+			padding: 15px;
+			height: 100%;
+			margin-left: 15px;
+			margin-right: 15px;
 		}
+		.post-header:hover {
+			background-color: rgba(26,26,26,0.8);
+		} 
 		.post-footer {
 		}
 		.post-content {
@@ -388,11 +390,22 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		}
 		
 		/* --- .post-grid --- */
+			.post-header { 
+				line-height: 170px;
+			}
 			.post-grid {
 				width: auto;
 				margin: 0 auto;
 			}
+			.half-width {
+				width: 100%;
+				padding: 0 15px;
+			}
 			@media (min-width: 768px) {
+				.half-width {
+					width: 75%;
+					margin: 0 auto;
+				}
 				.post-grid {
 					width: 708px;
 				}
@@ -402,15 +415,24 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 				.icon-right {
 					padding-left: 15px;
 				}
+				.post-header { 
+					line-height: 176px;
+				}
 			}
 			@media (min-width: 992px) {
 				.post-grid {
 					width: 732px;
 				}
+				.post-header {
+					line-height: 184px;
+				}
 			}
 			@media (min-width: 1200px) {
 				.post-grid {
 					width: 1140px;
+				}
+				.post-header {
+					line-height: 225px;
 				}
 			}
 		/* ------------------ */
@@ -738,12 +760,19 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		background-position: center;
 		left: 0;
 		right: 0;
-		top: 50%;
+		height: 100%;
 		font-size: 3em;
+		background-color: rgba(26,26,26,0.7);
 	}
 	#loading > i {
+		position: absolute;
+		display: block;
 		height: 48px;
 		line-height: 48px;
+		left: 0;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
 	}
 	
 	.inline-block {

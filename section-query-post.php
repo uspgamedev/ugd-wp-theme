@@ -39,8 +39,10 @@ $post = $cat_query->post;
 				</style>
 			<?php } ?>
 		</div>
-		<header class="post-header text-center h-10">
-			<?php echo apply_filters( 'the_title_on_thumbnails', get_the_title($post->ID), $post->ID ); ?>
+		<header class="post-header text-center">
+			<div class="inline-block normal-size">
+				<?php echo apply_filters( 'the_title_on_thumbnails', get_the_title($post->ID), $post->ID ); ?>
+			</div>
 		</header>
 	</a>
 </article>

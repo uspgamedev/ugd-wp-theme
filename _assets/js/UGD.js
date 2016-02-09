@@ -111,7 +111,7 @@ function QUERY() {
 
 	// Private Methods
 	function set_container() {
-		container = $('#query-' + data.cat_id).parent();
+		container = $('#query-' + data.cat_id);
 	}
 	function fadeout_things() {
 		container.fadeOut(200);
@@ -283,7 +283,7 @@ function SEARCH(logic) {
 
 	// Private Methods
 	function set_container() {
-		container = $('#query-' + data.cat_id).parent();
+		container = $('#query-' + data.cat_id);
 	}
 	function fadeout_things() {
 		container.fadeOut(200);
