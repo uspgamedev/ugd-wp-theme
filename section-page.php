@@ -8,7 +8,7 @@ $page = get_post( $section_content );
 	
 	<div class="page-container">
 		<article class="content-height">
-			<div class="col-md-6 img-col">
+			<div class="col-xs-12 img-col">
 				<div class="page-img "> 
 					<figure id="page-<?php echo $page->ID; ?>-img" class="img"></figure>
 					<style>
@@ -34,8 +34,8 @@ $page = get_post( $section_content );
 					</style>
 				</div>
 			</div>
-			<div class="col-md-6 page-entry content-height scrollable">
-				<div class="container-fluid">
+			<div class="col-xs-12 page-entry">
+				<div class="container-fluid post-grid">
 					<header class="page-header intro-font">
 						<h3><?php echo $page->post_title; ?></h3>
 					</header>

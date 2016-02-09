@@ -19,19 +19,34 @@ function SECTIONS() {
 		for (var i = 0; i < Size; i++) {
 			Menu.update(i, Selected, 'close');
 			animate(i);
+			animate_selected();
 		}
 	}
 
+	function animate_selected() {
+		if ( Sections[Selected].classList.contains('juicy') ) {
+			setTimeout(function() { Sections[Selected].classList.remove('juicy') }, 200);
+		}
+	}
 	function animate(index) {
 		// Moves Sections to display Selected Section
+		
 		Sections[index].style.setProperty("-moz-transform", "translate3D( " + (index - Selected)*100 + "%, 0, 0)");
 		Sections[index].style.setProperty("-ms-transform", "translate3D( " + (index - Selected)*100 + "%, 0, 0)");
 		Sections[index].style.setProperty("-o-transform", "translate3D( " + (index - Selected)*100 + "%, 0, 0)");
 		Sections[index].style.setProperty("-webkit-transform", "translate3D( " + (index - Selected)*100 + "%, 0, 0)");
 		Sections[index].style.setProperty("transform", "translate3D( " + (index - Selected)*100 + "%, 0, 0)");
+		
+		if (index != Selected) {
+			Sections[index].classList.add('juicy');
+		};
+
+		/*
 		if ( Sections[index].classList.contains('juicy') ) {
-			setTimeout(function() { Sections[index].classList.remove('juicy') }, 400);
+			//setTimeout(function() { Sections[Selected].classList.remove('juicy') }, 400);
 		}
+		*/
+
 		
 	}
 

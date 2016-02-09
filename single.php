@@ -30,7 +30,7 @@
 					</style>
 				<?php } ?>
 				</div>
-				<div class="single-container container">
+				<div class="single-container post-grid">
 					<div class="col-md-8">
 						<header class="single-header">
 							<h3>
