@@ -30,15 +30,9 @@ $category = $cat_query->get( 'cat' );
 			<div class="clearfix"></div>
 			
 			<nav class="query-nav text-center">
-				<div class="col-xs-12">
-					<div class="current-page">
-						<?php echo $paged; ?>
-					</div>
-				</div>
 				<div class="row">
 					<div class="col-xs-12">
-					<?php if ($paged > 1) { ?>
-						<div class="col-xs-6 ">
+						<?php if ($paged > 1) { ?>
 							<a  href="#"
 								class="query-nav-btn query-nav-btn-prev white-text"
 								target="<?php echo ($paged - 1); ?>"
@@ -47,12 +41,11 @@ $category = $cat_query->get( 'cat' );
 
 								<i class="icon-left fa fa-long-arrow-left"></i> <?php echo ($paged - 1); ?>
 							</a>
-						</div>
-					<?php } else { ?>
-						<div class="col-xs-6 "></div>
-					<?php } ?>					
-					<?php if ($paged < $pagelimit) { ?>
-						<div class="col-xs-6 ">
+						<?php } ?>
+						<span class="current-page">
+							<?php echo ( ( ($paged > 1) || ($paged < $pagelimit) ) ? $paged : '' ); ?>
+						</span>
+						<?php if ($paged < $pagelimit) { ?>
 							<a  href="#"
 								class="query-nav-btn query-nav-btn-next white-text"
 								target="<?php echo ($paged + 1); ?>"
@@ -61,10 +54,7 @@ $category = $cat_query->get( 'cat' );
 
 								<?php echo ($paged + 1); ?> <i class="icon-right fa fa-long-arrow-right"></i>
 							</a>
-						</div>
-					<?php } else { ?>
-						<div class="col-xs-6"></div>
-					<?php } ?>
+						<?php } ?>
 					</div>
 				</div>
 			</nav>

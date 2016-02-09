@@ -167,7 +167,7 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		}
 		.navigation-menu-item {
 			display: block;
-			float: left;
+			text-align: left;
 			clear: both;
 		}
 	}
@@ -363,10 +363,12 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		}
 		.query-nav-btn-prev, .query-nav-btn-next {
 			line-height: 2em;
-			display: block;
+			display: inline-block;
+			padding: 0 15px;
 		}
 		.current-page {
-			margin: 0 0 20px;
+			display: inline-block;
+			padding: 0 15px;
 		}
 		.icon, .icon-left, .icon-right {
 			vertical-align: -1px;
@@ -935,7 +937,8 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 	}
 	.navigation-menu .greenlue-text, .navigation-menu .greenlue-text a,
 	.meta-navigation-menu .greenlue-text, .meta-navigation-menu .greenlue-text a {
-		color: #75ffba;
+	    background-color: #75ffba;
+	    color: #1a1a1a;
 	}
 
 	#comments a {
@@ -961,10 +964,11 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		color: #75ffba;
 	}
 	.query a.white-text:active, .query a.white-text:focus, .query a.white-text:hover {
-		border-color: #75ffba;
+		background-color: #75ffba;
+		color: #1a1a1a;
 	}
 	.query a.white-text {
-		border: 1px solid #EFEFEF;
+		box-shadow: 0 0 5px #1a1a1a;
 		border-radius: 4px;
 	}
 

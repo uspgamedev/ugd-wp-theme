@@ -41,7 +41,7 @@ $post = $cat_query->post;
 			</style>
 		</div>
 		<header class="post-header text-center h-10">
-			<?php the_title(); ?>
+			<?php echo apply_filters( 'the_title_on_thumbnails', get_the_title($post->ID), $post->ID ); ?>
 		</header>
 	</a>
 </article>
