@@ -963,6 +963,11 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 	}
 	.navigation-menu .greenlue-text, .navigation-menu .greenlue-text a,
 	.meta-navigation-menu .greenlue-text, .meta-navigation-menu .greenlue-text a {
+	    background-color: #1a1a1a;
+	    color: #75ffba;
+	}
+	.navigation-menu .greenlue, .navigation-menu .greenlue a,
+	.meta-navigation-menu .greenlue, .meta-navigation-menu .greenlue a {
 	    background-color: #75ffba;
 	    color: #1a1a1a;
 	}

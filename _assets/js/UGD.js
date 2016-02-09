@@ -384,9 +384,9 @@ function MENU() {
 	}
 	function colorize(index, selected) {
 		// Makes Navigation Menu show which Section is Selected
-		menu_items[index].classList.remove('greenlue-text');
+		menu_items[index].classList.remove('greenlue', 'black-text');
 		menu_items[index].classList.add('white-text');
-		menu_items[selected].classList.add('greenlue-text');
+		menu_items[selected].classList.add('greenlue', 'black-text');
 		menu_items[selected].classList.remove('white-text');	
 	}
 
