@@ -79,6 +79,10 @@ function SECTIONS() {
 	obj.set = function(target_index) {
 		if (isInputFocus == true) return;
 		// If something sets it to a crazy number, it goes back to a decent one.
+		if (Selected == target_index) {
+			window.location.href = "?section=" + target_index;
+			return;
+		}
 		Selected = Math.abs( target_index % Size );
 		update();
 	}

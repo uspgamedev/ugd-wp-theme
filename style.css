@@ -562,15 +562,18 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 			}
 			@media (min-width: 992px) {
 				.page-entry {
-					padding-top: 48px;
+					/*padding-top: 48px;*/
 				}
-				.page-img {
-					/*height: 100%;
-					width: 50%;
-					box-shadow:	none;*/
+				.page-img, .img-col {
+					height: 480px;
 				}
 				.page-container {
 					height: 100%;
+				}
+			}
+			@media (min-width: 1200px) {
+				.page-img, .img-col  {
+					height: 540px;
 				}
 			}
 		/* ---------------------- */
