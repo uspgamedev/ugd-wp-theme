@@ -29,6 +29,9 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 	p {
 		margin: 0 0 1.5em;
 	}
+	td {
+		padding: 7.5px 15px;
+	}
 /* ============================== */
 
 /* === Font Sizes =============== */
