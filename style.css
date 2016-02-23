@@ -25,6 +25,12 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 	}
 /* ============================== */
 
+/* === Generic HTML ============= */
+	p {
+		margin: 0 0 1.5em;
+	}
+/* ============================== */
+
 /* === Font Sizes =============== */
 	body {
 		font-size: 1.8rem; /* 18px */
