@@ -31,6 +31,7 @@ $menusections = get_posts(
                         if ( is_attachment() || is_singular() ) {
                             $href = get_home_url() . "?section=" . $i;
                         }
+                        
           				if ( !(get_post_meta($menu_item->ID, 'section_type', true) == 'cover') ) {
                             printf('<li class="navigation-menu-item white-text"><a title="%1$s" href="%2$s">%1$s</a></li>', $menu_item->post_title, $href);
                         } else {

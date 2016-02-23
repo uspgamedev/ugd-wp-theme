@@ -2,7 +2,7 @@
 
 //save
 
-add_action('save_post', 'save_section_post_meta', 1);
+add_action('save_post', 'save_section_post_meta');
 function save_section_post_meta( $post_id ) {
     // Do stuff.
 
