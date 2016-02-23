@@ -20,14 +20,14 @@ function SECTIONS() {
 			Menu.update(i, Selected, 'close');
 			animate(i);
 			animate_selected();
-		}
-	}
+		};
+	};
 
 	function animate_selected() {
 		if ( Sections[Selected].classList.contains('juicy') ) {
 			setTimeout(function() { Sections[Selected].classList.remove('juicy') }, 200);
-		}
-	}
+		};
+	};
 	function animate(index) {
 		// Moves Sections to display Selected Section
 		
@@ -48,7 +48,7 @@ function SECTIONS() {
 		*/
 
 		
-	}
+	};
 
 	// Public Methods
 	obj.load = function() {
@@ -74,7 +74,7 @@ function SECTIONS() {
 
 		// Loading Controllers
 		update();
-	}
+	};
 
 	obj.set = function(target_index) {
 		if (isInputFocus == true) return;
@@ -82,25 +82,25 @@ function SECTIONS() {
 		if (Selected == target_index) {
 			window.location.href = "?section=" + target_index;
 			return;
-		}
+		};
 		Selected = Math.abs( target_index % Size );
 		update();
-	}
+	};
 	obj.next = function() {
 		if (isInputFocus == true) return;
 		Selected += 1;
 		if (Selected >= Size) Selected = Size-1;
 		update();
-	}
+	};
 	obj.prev = function() {
 		if (isInputFocus == true) return;
 		Selected -= 1;
 		if (Selected < 0) Selected = 0;
 		update();
-	}
+	};
 
 	return obj;
-}
+};
 
 function QUERY() {
 	var obj = {};
@@ -116,20 +116,20 @@ function QUERY() {
 	// Private Methods
 	function set_container() {
 		container = $('#query-' + data.cat_id);
-	}
+	};
 	function fadeout_things() {
 		container.fadeOut(200);
 		loading.classList.remove('hidden');
 		loading.classList.remove('juicy');
 		console.log('requesting new page...');
-	}
+	};
 	function fadein_things() {
 		container.fadeIn(200);
 		loading.classList.add('juicy');
 		setTimeout(function() {
 			loading.classList.add('hidden');
-		}, 200)
-	}
+		}, 200);
+	};
 
 	function update_nav_action(button) {
 		button.onclick = function() {
@@ -150,8 +150,8 @@ function QUERY() {
 				}
 			);
 			return false;
-		}
-	}
+		};
+	};
 	function set_data(button) {
 		var category = button.getAttribute('category-id');
 		var target = button.getAttribute('target');
@@ -162,26 +162,26 @@ function QUERY() {
 				cat_id: category,
 				target_page: target,
 				search_params: search
-			}
+			};
 		} else {
 			data = {
 				action: 'section_setpage_nosearch',
 				cat_id: category,
 				target_page: target
 			}
-		}
-	}
+		};
+	};
 	function update() {
 		for (var i = 0; i < nav_btn.length; i++) {
 			update_nav_action( nav_btn[i], i );
 		};
-	}
+	};
 	
 	// Public Methods
 	obj.load = function() {
 		nav_btn = document.getElementsByClassName('query-nav-btn');
 		update();
-	}
+	};
 
 	return obj;
 }
@@ -219,7 +219,7 @@ function INPUT(logic) {
 			// Do Action Here
 			logic.prev();
 		});
-	}
+	};
 	function load_keyboard() {
 		// KEYBOARD CONTROLS
 
@@ -233,7 +233,7 @@ function INPUT(logic) {
 			checkNavigationControls(e);
 			// setting up konami code activation
 			checkKonamiCode(e);
-		}
+		};
 		function checkKonamiCode(e) {
 			// initialises konami code interpreting
 			var key = e.which;
@@ -245,8 +245,8 @@ function INPUT(logic) {
 		   	// check input
 		    if (input == secret) {
 		        alert("SECRET UNLOCKED");
-		    }
-		}
+		    };
+		};
 		function checkNavigationControls(e) {
 			// checks navigation input
 			var key = e.which;
@@ -256,31 +256,31 @@ function INPUT(logic) {
 			} else if (key == 39) {
 				// RIGHT
 				logic.next();
-			}
-		}
-	}
+			};
+		};
+	};
 	function load_menu_items() {
 		var menu_items = document.getElementsByClassName('navigation-menu-item');
 		function add_menu_item_action(item, index) {
 			item.onclick = function() {
 				logic.set(index);
 			}
-		}
+		};
 		for (var i = 0; i < menu_items.length; i++) {
 			add_menu_item_action(menu_items[i], i);
 		};
-	}
+	};
 
 	// START UP
 	load_hammer();
 	load_keyboard();
 	load_menu_items();
-}
+};
 
 function SEARCH(logic) {
 	var data = {
 		action: 'section_setpage_search'
-	}
+	};
 	var loading = document.getElementById('loading');
 	var container;
 
@@ -288,20 +288,20 @@ function SEARCH(logic) {
 	// Private Methods
 	function set_container() {
 		container = $('#query-' + data.cat_id);
-	}
+	};
 	function fadeout_things() {
 		container.fadeOut(200);
 		loading.classList.remove('hidden');
 		loading.classList.remove('juicy');
 		console.log('requesting new page...');
-	}
+	};
 	function fadein_things() {
 		container.fadeIn(200);
 		loading.classList.add('juicy');
 		setTimeout(function() {
 			loading.classList.add('hidden');
 		}, 200)
-	}
+	};
 
 	// EVENT LOAD
 	function load_search_input() {
@@ -310,7 +310,7 @@ function SEARCH(logic) {
 		for (var i = 0; i < search_boxes.length; i++) {
 			check_text_input(search_boxes[i]);
 		};
-	}
+	};
 
 	function update(input, cat_id) {
 		set_data(input, cat_id);
@@ -329,17 +329,17 @@ function SEARCH(logic) {
 				console.log('new page gotten!');
 			}
 		);
-	}
+	};
 
 	function set_data(input, cat_id) {
 		if (input != "") {
 			data.action = "section_setpage_search";
 		} else {
 			data.action = "section_setpage_nosearch";
-		}
+		};
 		data.search_params = input;
 		data.cat_id = cat_id;
-	}
+	};
 
 	function check_text_input(inputbox) {
 		console.log(inputbox);
@@ -348,12 +348,12 @@ function SEARCH(logic) {
 				var text = this.value;
 				var cat = this.getAttribute('category-id');
 				update(text, cat);
-			}
-		}
-	}
+			};
+		};
+	};
 
 	load_search_input();
-}
+};
 
 // Dropdown Toggle Menu
 function MENU() {
@@ -364,7 +364,7 @@ function MENU() {
 	var togglees = {
 		navbar: document.getElementById('navigation-menu'),
 		content: document.getElementById('content')
-	}
+	};
 	var menu_items = document.getElementsByClassName('navigation-menu-item');
 	var open = false;
 
@@ -373,26 +373,26 @@ function MENU() {
 		togglees.navbar.classList.add('displace');
 		togglees.content.classList.add('displace');
 		open = true;
-	}
+	};
 	function close_menu() {
 		togglees.navbar.classList.remove('displace');
 		togglees.content.classList.remove('displace');
 		open = false;
-	}
+	};
 	function toggle_menu() {
 		if (open) {
 			close_menu();
 		} else {
 			open_menu();
-		}
-	}
+		};
+	};
 	function colorize(index, selected) {
 		// Makes Navigation Menu show which Section is Selected
 		menu_items[index].classList.remove('greenlue', 'black-text');
 		menu_items[index].classList.add('white-text');
 		menu_items[selected].classList.add('greenlue', 'black-text');
 		menu_items[selected].classList.remove('white-text');	
-	}
+	};
 
 	// Public Methods
 	obj.update = function(index, selected, state) {
@@ -406,9 +406,9 @@ function MENU() {
 				close_menu();
 			} else {
 				open_menu();
-			}
-		}
-	}
+			};
+		};
+	};
 
 	// START UP
 	toggler.onclick = toggle_menu;
@@ -426,6 +426,6 @@ function METAMENU() {
 	function toggle_meta_menu() {
 		togglee.classList.toggle('displace-vertical');
 		toggle_menu.classList.toggle('displace-vertical');
-	}
+	};
 	toggler.onclick = toggle_meta_menu;
-}
+};
