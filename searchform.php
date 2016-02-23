@@ -8,7 +8,7 @@
 					type="text" 
 					name="s"
 					category-id="<?php echo $section_content; ?>"
-					placeholder="Buscar por <?php echo $sections->post->post_title; ?>..."
+					placeholder="Buscar em <?php echo $sections->post->post_title; ?>..."
 					>
 				<i class="search-icon black-text text-center glyphicon glyphicon-search icon"></i>
 			</div>
