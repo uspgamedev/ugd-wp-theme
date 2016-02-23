@@ -791,6 +791,9 @@ UGD is distributed under the terms of the Creative Commons Attribution-NonCommer
 		display: inline-block;
 		vertical-align: middle;
 	}
+	.block {
+		display: block;
+	}
 
 	.unselectable {
 		-webkit-user-select: none;
