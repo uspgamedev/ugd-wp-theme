@@ -192,6 +192,7 @@ function INPUT(logic) {
 		// SWIPE CONTROLS
 
 		// hammer lib class
+		delete Hammer.defaults.cssProps.userSelect;
 		var ham = new Hammer( document.getElementById('content') );
 		// hammer lib controls
 		ham.add ( new Hammer.Swipe({
