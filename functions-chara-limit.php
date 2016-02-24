@@ -50,7 +50,7 @@ function UGD_no_widow_breakline($text, $ID = null, $min = 2) {
 			$last_words[] = array_pop($words);
 		}
 		$last_words[0] = $last_words[0] . '</div>';
-		$last_words[count($last_words) - 1] = '<div class="inline-block">' . $last_words[count($last_words) - 1];
+		$last_words[count($last_words) - 1] = '<div class="inline-block" style="vertical-align: 0px;">' . $last_words[count($last_words) - 1];
 
 		for ($i=0; $i < $min; $i++) { 
 			array_push( $words, array_pop($last_words) );
