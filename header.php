@@ -7,6 +7,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
+	<link rel="shortcut icon" href="https://uspgamedev.org/media/logo_favicon.png" />
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/_assets/fonts/intro_webfont/stylesheet.css">
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,900,900italic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
