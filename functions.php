@@ -43,8 +43,6 @@ function UGD_scripts() {
       [], null, true);
   wp_enqueue_script("ugd-jsmain", get_template_directory_uri() . "/_assets/js/ugd.min.js",
       ["ugd-jsjquery", "ugd-jshammer"], null, true);
-  wp_enqueue_script("ugd-jsinit", get_template_directory_uri() . "/_assets/js/init.js",
-      ["ugd-jsmain"], null, true);
 }
 add_action( 'wp_enqueue_scripts', 'UGD_scripts' );
 
