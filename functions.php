@@ -14,9 +14,6 @@ function UGD_filter_wp_title( $title ) {
 	return $title . esc_attr( get_bloginfo( 'name' ) );
 }
 
-add_action( 'wp_ajax_my_action', 'my_action' );
-add_action( 'wp_ajax_nopriv_my_action', 'my_action' );
-
 add_action('wp_head', 'UGD_ajaxurl');
 function UGD_ajaxurl() { ?>
   <script type="text/javascript">
